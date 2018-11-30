@@ -1,0 +1,49 @@
+class Rainbow 
+{
+  PVector position;
+  PVector velocity;
+  PVector acceleration;
+  float lifespan;
+ 
+  Rainbow(PVector l) 
+  {
+    acceleration = new PVector(0,0.05);
+    velocity = new PVector(random(-1,1),random(-2,0));
+    position = l.copy();
+    lifespan = 255.0;
+  }
+ 
+  public void run() 
+  {
+    update();
+    display();
+  }
+ 
+  void update() 
+  {
+    velocity.add(acceleration);
+    position.add(velocity);
+    lifespan -= 2.0;
+  }
+ 
+  void display() 
+  {
+    stroke(25, lifespan);
+    strokeWeight(2);
+    fill(random(100, 155),random(0, 55),random(200, 255), lifespan);
+    ellipse(position.x, position.y, 10, 10);
+  }
+ 
+  boolean isDead() 
+  {
+    if (lifespan < 0.0) 
+    {
+      return true;
+    } 
+    else 
+    {
+      return false;
+    }
+  }
+  
+}

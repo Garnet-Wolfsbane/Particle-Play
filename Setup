@@ -1,0 +1,175 @@
+ArrayList<Player> player;
+ArrayList<Rainbow> rainbow;
+
+boolean p = false;  // Player
+boolean rb = false;  //  Rainbow
+boolean debug = false; // Debug
+
+float UD = 450;  // Up and Down values of the player
+float LR = 750;  // Left and Right value of the player
+float rbUD = 250;  // Up and Down values of the Rainbow
+float rbLR = 550;  // Left and Right value of the Rainbow
+
+
+
+boolean moveUp = false;  //  movement for Up
+boolean moveDown = false;  //  movement for Down
+boolean moveLeft = false;  //  movement for Left
+boolean moveRight = false;  //  movement for Right
+
+//  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *
+
+public void setup()
+{
+  fullScreen();
+  background(25);
+  player = new ArrayList<Player>();  //  Player itself (a fountian of light blue particles)
+  rainbow = new ArrayList<Rainbow>();  //Rainbow (the AI of rainbow coloured particles)
+  p = true;  //Player can be seen
+  rb = true;
+}
+
+//  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *
+
+public void draw()
+{
+  background(25);
+//  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *
+
+  if(p == true)
+  {
+     player.add(new Player(new PVector(LR, UD)));
+     
+     if(debug == true)
+     {
+       fill(225, 25, 25);
+       rect(LR-15, UD-15, 25, 25);  // Shows the player's hit box
+     }
+  
+     for (int i = player.size()-1; i >= 0; i--) 
+     {
+      Player p = player.get(i);
+      p.run();
+      if (p.isDead()) 
+      {
+        player.remove(i);
+      }
+    }
+    
+    if(moveUp == true)
+    {
+      UD -= 15;
+    }
+  
+    if(moveDown == true)
+    {    
+      UD += 15;
+    }
+  
+    if(moveLeft == true)
+    {
+      LR -= 15;
+    }
+  
+    if(moveRight == true)
+    {
+      LR += 15;
+    }
+    
+  }
+  
+  //  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *
+  
+  if(rb == true)
+  {
+    rainbow.add(new Rainbow(new PVector(rbLR, rbUD)));
+     
+     if(debug == true)
+     {
+       fill(random(200,255),random(200,255),random(200,255));
+       rect(rbLR-15, rbUD-15, 25, 25);  // Shows Rainbow's hit box
+     }
+  
+     for (int i = rainbow.size()-1; i >= 0; i--) 
+     {
+      Rainbow r = rainbow.get(i);
+      r.run();
+      if (r.isDead()) 
+      {
+        rainbow.remove(i);
+      }
+    }
+  }
+  
+}
+
+//  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *
+
+public void keyPressed()
+{
+//  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *
+
+  if(keyCode == UP && p == true)
+  {
+    UD -= 15;
+  }
+  
+  if(keyCode == DOWN && p == true)
+  {    
+    UD += 15;
+  }
+  
+  if(keyCode == LEFT && p == true)
+  {
+    LR -= 15;
+  }
+  
+  if(keyCode == RIGHT && p == true)
+  {
+    LR += 15;
+  }
+  
+//  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *
+
+  if(keyCode == 'D')
+  {
+    if(debug == false)
+    {
+      debug = true;
+    }
+    else
+    {
+      debug = false;
+    }
+  }
+  
+//  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *
+  
+  
+  
+}
+
+//  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *
+
+void keyReleased()
+{
+  if(keyCode == UP && p == true && moveUp == true)
+  {
+    moveUp = false;
+  }
+  
+  if(keyCode == DOWN && p == true && moveDown == true)
+  {    
+    moveDown = false;
+  }
+  
+  if(keyCode == LEFT && p == true && moveLeft == true)
+  {
+    moveLeft = false;
+  }
+  
+  if(keyCode == RIGHT && p == true && moveRight == true)
+  {
+    moveRight = false;
+  }
+}

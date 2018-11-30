@@ -1,0 +1,49 @@
+class Player
+{
+  PVector position;
+  PVector velocity;
+  PVector acceleration;
+  float lifespan;
+ 
+  Player(PVector l) 
+  {
+    acceleration = new PVector(0,0.05);
+    velocity = new PVector(random(-1,1),random(-2,0));
+    position = l.copy();
+    lifespan = 255.0;
+  }
+ 
+  public void run() 
+  {
+    update();
+    display();
+  }
+ 
+  void update() 
+  {
+    velocity.add(acceleration);
+    position.add(velocity);
+    lifespan -= 2.0;
+  }
+ 
+  void display() 
+  {
+    stroke(25, lifespan);
+    strokeWeight(2);
+    fill(25, 200, 225, lifespan);
+    ellipse(position.x, position.y, 12, 12);
+  }
+ 
+  boolean isDead() 
+  {
+    if (lifespan < 0.0) 
+    {
+      return true;
+    } 
+    else 
+    {
+      return false;
+    }
+  }
+  
+}

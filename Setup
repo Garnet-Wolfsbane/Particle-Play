@@ -5,7 +5,7 @@
     *  Add the Guild Compound
     *  Add combat
     *  Add a two player option on a combat arena in the guild compound
-    *  
+    *  Add spells for attacks
     *  
 */
 
@@ -44,10 +44,6 @@ public void setup()
   player = new ArrayList<Player>();  //  Player itself (a fountian of light blue particles)
   rainbow = new ArrayList<Rainbow>();  //Rainbow (the AI of rainbow coloured particles)
   playerSetup = true;
-  //p = true;  //Player can be seen
-  //rb = true;  //Rainbow can be seen
-  //moveInLineV = true;
-  //welcome = true;
 }
 
 //  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *
@@ -61,7 +57,7 @@ public void draw()
     chat();
     fill(175);
     textSize(25);
-    text("Please enter your name, Light Blue Player:  " + playerName, 75 , 725);
+    text("Please enter your name, Player:  " + playerName, 75 , 725);
     text("Press ENTER when you are finished.",75 , 775);
     
     if(key == ENTER && playerSetup == true)
@@ -168,6 +164,9 @@ public void draw()
  {
     chat();
  }
+ 
+ 
+ 
 }
 
 //  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *
@@ -178,6 +177,7 @@ public void keyTyped()
   {
     playerName += char(key);
   }
+  
 }
 
 //  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *
@@ -251,4 +251,11 @@ void keyReleased()
   {
     moveRight = false;
   }
+}
+
+//  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *
+
+public void mousePressed()
+{
+  spells();
 }

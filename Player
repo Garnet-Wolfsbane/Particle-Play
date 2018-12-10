@@ -1,3 +1,83 @@
+/*
+  *  
+  *
+  *
+*/
+
+int pHealth = 25;
+int pHealthMax = 25;
+int pGold = 125;
+int pManaMax = 50;
+int pMana = 50;
+
+// Inventory List begin
+
+int potionMana = 50;
+
+// Inventory List begin
+
+boolean manaZero = false;
+
+// Spell List begin
+int spellCost = 5;
+int spell = 0;
+boolean frostbite = false;
+boolean fireball = false;
+boolean boulder = false;
+boolean wind = false;
+// Spell List end
+
+color manaColour = #5BC6FA;
+
+class Player
+{
+  PVector position;
+  PVector velocity;
+  PVector acceleration;
+  float lifespan;
+ 
+  Player(PVector l) 
+  {
+    acceleration = new PVector(0,0.05);
+    velocity = new PVector(random(-1,1),random(-2,0));
+    position = l.copy();
+    lifespan = 255.0;
+  }
+ 
+  public void run() 
+  {
+    update();
+    display();
+  }
+ 
+  public void update() 
+  {
+    velocity.add(acceleration);
+    position.add(velocity);
+    lifespan -= 2.0;
+  }
+ 
+  public void display() 
+  {
+    stroke(25, lifespan);
+    strokeWeight(2);
+    fill(25, 200, 225, lifespan);
+    ellipse(position.x, position.y, 12, 12);
+  }
+ 
+  boolean isDead() 
+  {
+    if (lifespan < 0.0) 
+    {
+      return true;
+    } 
+    else 
+    {
+      return false;
+    }
+  }
+  
+}
 public void pstats()
 {
   //manaRegen();

@@ -1,8 +1,10 @@
 /*                                                                        Notes
     *  Improve Rainbow's Ai
-    *  Add chatting
-    *  Add story (See under Player tab)
-    *  
+    *  Add on to chatting
+    *  Add on to story
+    *  Add the Guild Compound
+    *  Add combat
+    *  Add a two player option on a combat arena in the guild compound
     *  
     *  
 */
@@ -10,21 +12,26 @@
 ArrayList<Player> player;
 ArrayList<Rainbow> rainbow;
 
+String playerName = "";
+boolean playerSetup = false;
+
 boolean p = false;  // Player
 boolean rb = false;  //  Rainbow
 boolean debug = false; // Debug
 
+float BGC = 25;  // Background Colour
 float UD = 450;  // Up and Down values of the player
 float LR = 750;  // Left and Right value of the player
-float rbUD = 250;  // Up and Down values of the Rainbow
-float rbLR = 550;  // Left and Right value of the Rainbow
+float rbUD = 250;  // Up and Down values of Rainbow
+float rbLR = 550;  // Left and Right value of Rainbow
+float pSpeed = 15;
 
 boolean moveUp = false;  //  movement for Up
 boolean moveDown = false;  //  movement for Down
 boolean moveLeft = false;  //  movement for Left
 boolean moveRight = false;  //  movement for Right
 
-boolean moveInLine = false;
+boolean moveInLineV = false;
 
 int moveVal = -2;
 
@@ -33,19 +40,38 @@ int moveVal = -2;
 public void setup()
 {
   fullScreen();
-  background(25);
+  background(BGC);
   player = new ArrayList<Player>();  //  Player itself (a fountian of light blue particles)
   rainbow = new ArrayList<Rainbow>();  //Rainbow (the AI of rainbow coloured particles)
-  p = true;  //Player can be seen
-  rb = true;  //Rainbow can be seen
-  moveInLine = true;
+  playerSetup = true;
+  //p = true;  //Player can be seen
+  //rb = true;  //Rainbow can be seen
+  //moveInLineV = true;
+  //welcome = true;
 }
 
 //  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *
 
 public void draw()
 {
-  background(25);
+  background(BGC);
+  
+  if(playerSetup == true)
+  {
+    chat();
+    fill(175);
+    textSize(25);
+    text("Please enter your name, Light Blue Player:  " + playerName, 75 , 725);
+    text("Press ENTER when you are finished.",75 , 775);
+    
+    if(key == ENTER && playerSetup == true)
+    {
+      playerSetup = false;
+      p = true;  //Player can be seen
+      rb = true;  //Rainbow can be seen
+      welcome = true;
+    }
+  }
   
 //  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *
 
@@ -71,22 +97,22 @@ public void draw()
     
     if(moveUp == true)
     {
-      UD -= 15;
+      UD -= pSpeed;
     }
   
     if(moveDown == true)
     {    
-      UD += 15;
+      UD += pSpeed;
     }
   
     if(moveLeft == true)
     {
-      LR -= 15;
+      LR -= pSpeed;
     }
   
     if(moveRight == true)
     {
-      LR += 15;
+      LR += pSpeed;
     }
     
   }
@@ -98,14 +124,14 @@ public void draw()
   if(rb == true)
   {
     
-    if(moveInLine == true)
+    if(moveInLineV == true)
     {
       rbUD += moveVal;  
       if(rbUD <= 0)
         {
           moveVal *= -1;
         }
-        else if (rbUD >= 880)
+        else if (rbUD >= 650)
         {
           moveVal *= -1;
         }
@@ -117,7 +143,7 @@ public void draw()
      
      if(debug == true)
      {
-       fill(random(200,255),random(200,255),random(200,255));
+       fill(random(75, 155),random(25, 105),random(175, 255));
        rect(rbLR-15, rbUD-15, 25, 25);  // Shows Rainbow's hit box
      }
   
@@ -132,34 +158,54 @@ public void draw()
     }
   }
   
-//  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *
+//  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  
   
+  
+  
+//  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *
+ 
+ if(playerSetup == false)
+ {
+    chat();
+ }
 }
 
 //  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *
 
+public void keyTyped()
+{
+  if(playerSetup == true)
+  {
+    playerName += char(key);
+  }
+}
+
+//  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *
 public void keyPressed()
 {
-//  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *
 
   if(keyCode == UP && p == true)
   {
-    UD -= 15;
+    UD -= pSpeed;    //Move up
+    moveUp = true;
   }
   
   if(keyCode == DOWN && p == true)
   {    
-    UD += 15;
+    UD += pSpeed;    //Move down
+    moveDown = true;
   }
   
   if(keyCode == LEFT && p == true)
   {
-    LR -= 15;
+    LR -= pSpeed;    //Move left
+    moveLeft = true;
   }
   
   if(keyCode == RIGHT && p == true)
   {
-    LR += 15;
+    LR += pSpeed;    //Move right
+    moveRight = true;
   }
   
 //  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *

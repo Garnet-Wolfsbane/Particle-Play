@@ -1,0 +1,130 @@
+/*
+  *  
+  *
+  *
+*/
+
+float talk = 1;
+
+boolean welcome = false;
+
+boolean one = false;
+boolean two = false;
+boolean three = false;
+boolean four = false;
+
+public void chat()
+{
+  fill(100);
+  rect(0, 650, 1440, 250);
+  
+//  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *
+  
+  if(welcome == true)
+  {
+    
+    if(talk == 1)
+    {
+      fill(#6209AD);    // Rainbow colour
+      text("Rainbow:  Welcome back " + playerName + "Do remember how to use the systems here? If not, use the numberpad to choose dialogue options.",75 , 725);
+      
+      fill(25, 200, 225);    // Player colour
+      text("Yes, I do Rainbow. Good to see you again.", 75, 800);
+      text("1", 300, 825);
+      text("No, I don't remember anything here.", 800, 800);
+      text("2", 1025, 825);
+      
+      if(keyCode == '1')
+      {
+        one = true;
+        talk++;
+      }
+      if(keyCode == '2')
+      {
+        two = true;
+        talk++;
+      }
+      
+    }
+    
+    if(talk == 2 && one == true)
+    {
+      fill(#6209AD);    // Rainbow's colour
+      text("Rainbow:  Great, let's go to the common room then!", 75, 725);
+      
+      fill(25, 200, 225);    // Player colour
+      text("Right behind you!", 75, 800);
+      text("1", 150, 825);
+      text("I'll be there after I look around a bit.", 500, 800);
+      text("2", 750, 825);
+      
+    }
+    
+    
+    
+    if(talk == 2 && two == true)
+    {
+      fill(#6209AD);    // Rainbow's colour
+      text("Rainbow:  Oh... I see. Well then, you know how dialogue works now except if there are no options, press ENTER.", 75, 725);
+      text("Now, how about we a look at movement?", 75, 750);
+      
+      if(key == ENTER)
+      {
+        talk++;
+        two = false;
+        three = true;
+      }
+    }
+    
+    if(talk == 3 && three == true)
+    {
+      fill(#6209AD);    // Rainbow's colour
+      text("Rainbow:  Use the Arrow Keys to move about the map.", 75, 725);
+      
+      if(moveUp == true ||moveDown == true ||moveLeft == true ||moveRight == true)
+      {
+        talk++;
+      }
+    }
+    
+    if(talk == 4 && three == true)
+    {
+      fill(#6209AD);    // Rainbow's colour
+      text("Rainbow:  There we go! Is the speed to fast for you?", 75, 725);
+      
+      fill(25, 200, 225);    // Player colour
+      text("No, It's fine, Rainbow", 75, 800);
+      text("1", 200, 825);
+      text("Yes, it is a bit fast", 500, 800);
+      text("2", 600, 825);
+      
+      if(keyCode == '1')
+      {
+        talk++;
+      }
+      if(keyCode == '2')
+      {
+        three = false;
+        four = true;
+        pSpeed = 10;
+        talk++;
+      }
+    }
+    
+    if(talk == 5 && three == true)
+    {
+      fill(#6209AD);    // Rainbow's colour
+      text("Rainbow:  *She smiles* Good. Now, let's get to the common room.", 75, 725);
+    }
+    
+    if(talk == 5 && four == true)
+    {
+      fill(#6209AD);    // Rainbow's colour
+      text("Rainbow:  There, I ajusted your speed. Any slower and it will be harder for you later on.", 75, 725);
+    }
+    
+  }
+  
+//  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  
+  
+}

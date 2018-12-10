@@ -1,49 +1,129 @@
-class Player
+public void pstats()
 {
-  PVector position;
-  PVector velocity;
-  PVector acceleration;
-  float lifespan;
- 
-  Player(PVector l) 
+  //manaRegen();
+  fill(25, 200, 225);
+  textSize(35);
+  text(playerName, 75, 700);
+  textSize(25);
+  fill(#FF3636);
+  text("Health:  " + pHealth + " / " + pHealthMax, 125, 750);
+  fill(#FAE630);
+  text("Gold:  " + pGold, 125, 800);
+  fill(manaColour);
+  text("Mana:  " + pMana + " / " + pManaMax, 125, 850);
+  //  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~
+  fill(#EBF0AC);
+  textSize(30);
+  text("Spell List:  ", 760, 725);
+  textSize(25);
+  if(frostbite == true)
   {
-    acceleration = new PVector(0,0.05);
-    velocity = new PVector(random(-1,1),random(-2,0));
-    position = l.copy();
-    lifespan = 255.0;
+    fill(#3E9CE3);
+    text("Frostbite:  " + spellCost, 810, 775);
   }
- 
-  public void run() 
+  if(fireball == true)
   {
-    update();
-    display();
+    fill(#FC7C03);
+    text("Fireball:  " + (spellCost + 2), 810, 800);
   }
- 
-  void update() 
+  if(boulder == true)
   {
-    velocity.add(acceleration);
-    position.add(velocity);
-    lifespan -= 2.0;
+    fill(#A2A19F);
+    text("Boulder:  " + (spellCost + 5), 810, 825);
   }
- 
-  void display() 
+  if(wind == true)
   {
-    stroke(25, lifespan);
-    strokeWeight(2);
-    fill(25, 200, 225, lifespan);
-    ellipse(position.x, position.y, 12, 12);
+    fill(#F0EEED);
+    text("Gust of Wind:  " + (spellCost - 2), 810, 850);
   }
- 
-  boolean isDead() 
+  //  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~
+  
+  if(keyCode == '1' && frostbite == true)
   {
-    if (lifespan < 0.0) 
+    spell = 1;
+  }
+  
+  if(keyCode == '2' && fireball == true)
+  {
+    spell = 2;
+  }
+  
+  if(keyCode == '3' && boulder == true)
+  {
+    spell = 3;
+  }
+  
+  if(keyCode == '4' && wind == true)
+  {
+    spell = 4;
+  }
+  
+  if(pMana == 0)
+  {
+    manaColour = #FF0000;
+    manaZero = true;
+  }
+  if(manaZero == true)
+  {
+    if(potionMana >= 1)
     {
-      return true;
-    } 
-    else 
+      potionMana--;
+      manaRegen();
+    }
+    if(pMana >= 10)
     {
-      return false;
+      manaColour = #5BC6FA;
     }
   }
   
+  //  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~
+}
+
+public void spells()
+{
+  if(spell == 1)
+  {
+    if((pMana - spellCost) >= 0)
+    {
+      pMana -= spellCost;
+      fill(#3E9CE3);
+      ellipse(mouseX, mouseY, 50, 50);
+    }
+  }
+  if(spell == 2)
+  {
+    if((pMana - (spellCost + 2)) >= 0)
+    {
+      pMana -= (spellCost + 2);
+      fill(#FC7C03);
+      ellipse(mouseX, mouseY, 50, 50);
+    }
+  }
+  if(spell == 3)
+  {
+    if((pMana - (spellCost + 5)) >= 0)
+    {
+      pMana -= (spellCost + 5);
+      fill(#A2A19F);
+      ellipse(mouseX, mouseY, 50, 50);
+    }
+  }
+  if(spell == 4)
+  {
+    if((pMana - (spellCost - 2)) >= 0)
+    {
+      pMana -= (spellCost - 2);
+      fill(#F0EEED);
+      ellipse(mouseX, mouseY, 50, 50);
+    }
+  }
+  
+}
+
+public void manaRegen()
+{
+  if(pMana < pManaMax)
+  {
+    pMana++;
+  }
 }

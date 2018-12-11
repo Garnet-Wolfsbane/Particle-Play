@@ -22,8 +22,11 @@ boolean two = false;
 boolean three = false;
 boolean four = false;
 
-String CoderK = "Kenmur";
-String CoderZ = "Zack";
+String CoderK = "7194";
+String CoderZ = "Jet Cheung";
+
+boolean dev = false;
+float devTalk = 1;
 
 public void chat()
 {
@@ -35,11 +38,15 @@ public void chat()
   {
     fill(#6209AD);    // Rainbow colour
     text("Rainbow: Let's hope you get something done today for once, Master *chuckle*", 75, 750);
+    dev = true;
     pGold = 125000;
+    welcome = false;
   }
-  else if(welcome == true)
+  
+  if(welcome == true)
   {
-    
+    if(dev != true)
+    {
     if(talk == 1)
     {
       fill(#6209AD);    // Rainbow colour
@@ -64,8 +71,8 @@ public void chat()
         two = true;
         talk++;
       }
+      }
       
-    }
     
     if(talk == 2 && one == true)
     {
@@ -163,9 +170,38 @@ public void chat()
       }
     }
 
-    
+    }
 
   }
+  if(dev == true)
+      {
+        if(devTalk == 2)
+        {
+          welcome = false;
+          fill(#6209AD);    // Rainbow colour
+          text("Let's get right back to it Sir, shall we? *Soft giggle*" ,75 , 725);
+        }
+        if(playerName.equals(CoderK))
+        {
+          playerName = "Kenmur";
+        }
+        else if(playerName.equals(CoderZ))
+        {
+          playerName = "Zack";
+        }
+        if(keyCode == CONTROL)
+        {
+          devTalk++;
+          frostbite = true;
+          fireball = true;
+          boulder = true;
+          wind = true;
+        
+          one = false;
+          welcome = false;
+          playerStats = true;
+        }
+      }
   
 //  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  
   

@@ -8,7 +8,7 @@
     *  Add spells for attacks
     *  Add exp and lvls?
     *  Add shops in the Science Labs
-    *  Add boundrys
+    *  
 */
 
 ArrayList<Player> player;
@@ -28,9 +28,9 @@ boolean training = false;
 // Scenes List end
 
 float UD = 400;  // Up and Down values of the player
-float LR = 750;  // Left and Right value of the player
+float LR = 875;  // Left and Right value of the player
 float rbUD = 400;  // Up and Down values of Rainbow
-float rbLR = 550;  // Left and Right value of Rainbow
+float rbLR = 675;  // Left and Right value of Rainbow
 float pSpeed = 15;
 
 boolean moveUp = false;  //  movement for Up
@@ -53,7 +53,7 @@ public void setup()
   player = new ArrayList<Player>();  //  Player itself (a fountian of light blue particles)
   rainbow = new ArrayList<Rainbow>();  //Rainbow (the AI of rainbow coloured particles)
   playerSetup = true;
-  Hanger = loadImage("Hanger.png");
+  Hanger = loadImage("Hanger.jpg");
 }
 
 //  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *
@@ -84,32 +84,21 @@ public void draw()
 
   if(hanger == true)
   {  
-    image(Hanger, 0, 0);
-    showPlayer();
-    showRainbow();
-    //hanger();
-    if(playerSetup == false)
-    {
-      chat();
-    }
+    hanger();
   }
   
 //  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  
   
   if(hallway1 == true)
   {
-    showPlayer();
-    showRainbow();
-   //hallway1();
+    hallway1();
   }
   
 //  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  
   
   if(training == true)
   {
-    showPlayer();
-    showRainbow();
-    //trainingRoom();
+    trainingRoom();
   }
   
   
@@ -132,31 +121,39 @@ public void keyPressed()
 
   if(keyCode == UP && p == true)
   {
-    while(UD > 1)
+    if(UD > 1)
     {
       UD -= pSpeed;    //Move up
       moveUp = true;
     }
-      moveUp = false;
-    
+
   }
   
   if(keyCode == DOWN && p == true)
-  {    
-    UD += pSpeed;    //Move down
-    moveDown = true;
+  {   
+    if(UD < 650)
+    {
+      UD += pSpeed;    //Move down
+      moveDown = true;
+    }
   }
   
   if(keyCode == LEFT && p == true)
   {
-    LR -= pSpeed;    //Move left
-    moveLeft = true;
+    if(LR > 0)
+    {
+      LR -= pSpeed;    //Move left
+      moveLeft = true;
+    }
   }
   
   if(keyCode == RIGHT && p == true)
   {
-    LR += pSpeed;    //Move right
-    moveRight = true;
+    if(LR < 1440)
+    {
+      LR += pSpeed;    //Move right
+      moveRight = true;
+    }
   }
   
 //  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *
@@ -237,22 +234,34 @@ public void showPlayer()
     
     if(moveUp == true)
     {
-      UD -= pSpeed;
+      if(UD > 1)
+      {
+        UD -= pSpeed;
+      }
     }
   
     if(moveDown == true)
-    {    
-      UD += pSpeed;
+    { 
+      if(UD < 650)
+      {
+        UD += pSpeed;
+      }
     }
   
     if(moveLeft == true)
     {
-      LR -= pSpeed;
+      if(LR > 0)
+      {
+        LR -= pSpeed;
+      }
     }
   
     if(moveRight == true)
     {
-      LR += pSpeed;
+      if(LR < 1440)
+      {
+        LR += pSpeed;
+      }
     }
     
   }

@@ -132,8 +132,15 @@ public void keyPressed()
 
   if(keyCode == UP && p == true)
   {
-    UD -= pSpeed;    //Move up
-    moveUp = true;
+    while(UD < 1)
+    {
+      UD -= pSpeed;    //Move up
+      moveUp = true;
+    }
+    else
+    {
+      moveUp = false;
+    }
   }
   
   if(keyCode == DOWN && p == true)

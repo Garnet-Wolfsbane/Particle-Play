@@ -35,6 +35,7 @@ public void chat()
   {
     fill(#6209AD);    // Rainbow colour
     text("Rainbow: Let's hope you get something done today for once, Master *chuckle*", 75, 750);
+    pGold = 125000;
   }
   else if(welcome == true)
   {

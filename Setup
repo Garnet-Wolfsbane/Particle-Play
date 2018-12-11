@@ -75,6 +75,7 @@ public void draw()
       p = true;  //Player can be seen
       rb = true;  //Rainbow can be seen
       
+      devTalk++;
       welcome = true;
       hanger = true;
     }

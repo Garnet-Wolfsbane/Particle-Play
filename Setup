@@ -84,21 +84,21 @@ public void draw()
 
   if(hanger == true)
   {  
-    hanger();
+    //hanger();
   }
   
 //  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  
   
   if(hallway1 == true)
   {
-    hallway1();
+    //hallway1();
   }
   
 //  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  
   
   if(training == true)
   {
-    trainingRoom();
+    //trainingRoom();
   }
   
   

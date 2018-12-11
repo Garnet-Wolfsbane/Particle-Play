@@ -75,9 +75,10 @@ public void draw()
       p = true;  //Player can be seen
       rb = true;  //Rainbow can be seen
       
+      inHanger = true;
       devTalk++;
-      welcome = true;
       hanger = true;
+      System.out.println("Player is in the Hanger");
     }
   }
   
@@ -102,6 +103,9 @@ public void draw()
     trainingRoom();
   }
   
+//  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  
+  
+  
   
 }
 
@@ -117,8 +121,6 @@ public void keyTyped()
     }
   }
   
-  
-  
 }
 
 //  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *
@@ -127,7 +129,7 @@ public void keyPressed()
 
   if(keyCode == UP && p == true)
   {
-    if(UD > 1)
+    if(UD > 2)
     {
       UD -= pSpeed;    //Move up
       moveUp = true;
@@ -186,6 +188,7 @@ public void keyPressed()
 
 void keyReleased()
 {
+  
   if(playerSetup == true)
   {
     if(keyCode == BACKSPACE)
@@ -198,7 +201,6 @@ void keyReleased()
     }
   }
   
-  //*********
   if(keyCode == UP && p == true && moveUp == true)
   {
     moveUp = false;
@@ -253,7 +255,7 @@ public void showPlayer()
     
     if(moveUp == true)
     {
-      if(UD > 1)
+      if(UD > 2)
       {
         UD -= pSpeed;
       }
@@ -284,7 +286,6 @@ public void showPlayer()
     }
     
   }
-  
 }
 
 //  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *
@@ -333,4 +334,5 @@ public void showRainbow()
 }
 
 //  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *
+
 

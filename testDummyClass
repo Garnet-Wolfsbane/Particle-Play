@@ -1,0 +1,31 @@
+public class testDummy
+{
+  private String name = "";
+  private int hp;
+  
+  public testDummy(String name, int hp)
+  {
+    this.name = name;
+    this.hp = hp;
+  }
+  public String getName()
+  {
+    return name;
+  }
+  public int getHP()
+  {
+    return hp;
+  }
+  public void setName(String name)
+  {
+    this.name = name;
+  }
+  public void setHP(int hp)
+  {
+    this.hp = hp;
+  }
+  public String toString()
+  {
+    return "Test dummy " + name + " has " + hp + "Hit Points";
+  }
+}

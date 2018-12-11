@@ -1,0 +1,41 @@
+/*
+*  Player learns first spell (Gust of Wind || Frostbite) in the training room
+*  
+*  
+*/
+
+//  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *
+
+public void hanger()
+{
+  image(Hanger, 0, 0);
+  showPlayer();
+  showRainbow();
+  
+  
+  chat();
+}
+
+//  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *
+
+public void hallway1()
+{
+  
+  showPlayer();
+  showRainbow();
+  
+  chat();
+}
+
+//  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *
+
+public void trainingRoom()
+{
+  
+  showPlayer();
+  showRainbow();
+  
+  chat();
+}
+
+//  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *

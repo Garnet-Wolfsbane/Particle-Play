@@ -8,7 +8,7 @@
     *  Add spells for attacks
     *  Add exp and lvls?
     *  Add shops in the Science Labs
-    *  
+    *  Add boundrys
 */
 
 ArrayList<Player> player;

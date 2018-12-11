@@ -1,0 +1,48 @@
+public class testWeapons
+{
+  private String name = "";
+  private int maxDamage;
+  private int areaOfEffect;
+  
+  public testWeapons(String name, int maxDamage, int areaOfEffect)
+  {
+    this.name = name;
+    this.maxDamage = maxDamage;
+    this.areaOfEffect = areaOfEffect;
+  }
+  
+  public String getName()
+  {
+    return this.name;
+  }
+  
+  public int getMaxDamage()
+  {
+    return this.maxDamage;
+  }
+  
+  public int getAreaOfEffect()
+  {
+    return this.areaOfEffect;
+  }
+  
+  public void setName(String name)
+  {
+    this.name = name;
+  }
+  
+  public void setMaxDamage(int maxDamage)
+  {
+    this.maxDamage = maxDamage;
+  }
+  
+  public void setAreaOfEffect(int areaOfEffect)
+  {
+    this.areaOfEffect = areaOfEffect;
+  }
+  
+  public String toString()
+  {
+    return name + " is a weapon with a Maximum Damage of " + maxDamage + " and an area of effect of " + areaOfEffect;
+  }
+}

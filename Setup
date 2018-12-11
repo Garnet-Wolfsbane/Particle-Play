@@ -110,8 +110,13 @@ public void keyTyped()
 {
   if(playerSetup == true)
   {
+    if((int)key != 8)
+    {
     playerName += char(key);
+    }
   }
+  
+  
   
 }
 
@@ -180,6 +185,19 @@ public void keyPressed()
 
 void keyReleased()
 {
+  if(playerSetup == true)
+  {
+    if(keyCode == BACKSPACE)
+    {
+      if(playerName.length()>=1)
+      {
+      playerName = playerName.substring(0,playerName.length()-1);
+      key = 'a';
+      }
+    }
+  }
+  
+  //*********
   if(keyCode == UP && p == true && moveUp == true)
   {
     moveUp = false;
@@ -265,6 +283,7 @@ public void showPlayer()
     }
     
   }
+  
 }
 
 //  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *
@@ -313,5 +332,4 @@ public void showRainbow()
 }
 
 //  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *
-
 

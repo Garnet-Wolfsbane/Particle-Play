@@ -18,15 +18,19 @@ boolean one = false;
 boolean two = false;
 boolean three = false;
 boolean four = false;
-
+String special = "Kenmur";
 public void chat()
 {
   fill(100);
   rect(0, 650, 1440, 250);
   
 //  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *
-  
-  if(welcome == true)
+  if(playerName.equals(special))
+  {
+    fill(#6209AD);    // Rainbow colour
+    text("Rainbow: Let's hope you get something done today for once, Master *chuckle*", 75, 750);
+  }
+  else if(welcome == true)
   {
     
     if(talk == 1)

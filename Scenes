@@ -12,14 +12,22 @@ public void hanger()
   showPlayer();
   showRainbow();
   
-  
   chat();
+  
+  if(UD <= 2 && (LR <= 800 || LR >= 740))    //Go to Hallway 1
+  {
+    hanger = false;
+    hallway1 = true;
+    System.out.println("Player is in Hallway 1");
+  }
 }
 
 //  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *
 
 public void hallway1()
 {
+  UD = 600;
+  LR = 750;
   
   showPlayer();
   showRainbow();

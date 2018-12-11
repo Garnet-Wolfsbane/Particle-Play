@@ -87,7 +87,7 @@ public void draw()
     image(Hanger, 0, 0);
     showPlayer();
     showRainbow();
-    hanger();
+    //hanger();
     if(playerSetup == false)
     {
       chat();
@@ -100,7 +100,7 @@ public void draw()
   {
     showPlayer();
     showRainbow();
-    hallway1();
+   //hallway1();
   }
   
 //  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  
@@ -109,7 +109,7 @@ public void draw()
   {
     showPlayer();
     showRainbow();
-    trainingRoom();
+    //trainingRoom();
   }
   
   
@@ -132,15 +132,13 @@ public void keyPressed()
 
   if(keyCode == UP && p == true)
   {
-    while(UD < 1)
+    while(UD > 1)
     {
       UD -= pSpeed;    //Move up
       moveUp = true;
     }
-    else
-    {
       moveUp = false;
-    }
+    
   }
   
   if(keyCode == DOWN && p == true)

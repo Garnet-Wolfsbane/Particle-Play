@@ -1,6 +1,6 @@
 /*
   *  
-  *
+  *  fix the insta name change for Dev team at the beginning
   *
 */
 
@@ -14,7 +14,6 @@ float memory = 0;    // How much is "remembered" by the player. Used by Rainbow
 boolean first = false;
 boolean second = false;
 
-boolean welcome = false;
 boolean playerStats = false;
 
 boolean one = false;
@@ -28,6 +27,10 @@ String CoderZ = "Jet Cheung";
 boolean dev = false;
 float devTalk = 1;
 
+boolean inHanger = false;
+boolean inHallway1 = false;
+boolean inTrainingRoom = false;
+
 public void chat()
 {
   fill(100);
@@ -40,17 +43,18 @@ public void chat()
     text("Rainbow: Let's hope you get something done today for once, Master *chuckle*", 75, 750);
     dev = true;
     pGold = 125000;
-    welcome = false;
+    inHanger = false;
   }
   
-  if(welcome == true)
+  if(inHanger == true)
   {
     if(dev != true)
     {
     if(talk == 1)
     {
       fill(#6209AD);    // Rainbow colour
-      text("Rainbow:  Welcome back " + playerName + " Do you remember how to use the systems here? If not, use the numberpad to choose dialogue options.",75 , 725);
+      text("Rainbow:  Welcome back, " + playerName,75 , 725);
+      text("Do you remember how to use the systems here? If not, use the numberpad to choose dialogue options.", 75, 750);
       
       fill(25, 200, 225);    // Player colour
       text("Yes, I do Rainbow. Good to see you again.", 75, 800);
@@ -63,6 +67,7 @@ public void chat()
         second = true;
         one = true;
         rbFriendship++;
+        memory = 100;
         talk++;
       }
       if(keyCode == '2')
@@ -87,7 +92,7 @@ public void chat()
         wind = true;
         
         one = false;
-        welcome = false;
+        inHanger = false;
         playerStats = true;
         talk = 1;
       }
@@ -147,12 +152,12 @@ public void chat()
     if(talk == 5 && three == true)
     {
       fill(#6209AD);    // Rainbow's colour
-      text("Rainbow:  *smiles* Good. Now, let's get to the common room. (P.S Kenmur, work on the guild hall for me please. ég elska þig!)", 75, 725);
+      text("Rainbow:  *smiles* Good. Now, let's get to the common room.", 75, 725);
       
       if(key == ENTER)
       {
         playerStats = true;
-        welcome = false;
+        inHanger = false;
         talk = 1;
       }
     }
@@ -165,7 +170,7 @@ public void chat()
       if(key == ENTER)
       {
         playerStats = true;
-        welcome = false;
+        inHanger = false;
         talk = 1;
       }
     }
@@ -177,9 +182,10 @@ public void chat()
       {
         if(devTalk == 2)
         {
-          welcome = false;
+          inHanger = false;
           fill(#6209AD);    // Rainbow colour
           text("Let's get right back to it Sir, shall we? *Soft giggle*" ,75 , 725);
+          text("P.S Kenmur and Zack, ég elska þig!", 75, 775);
         }
         if(playerName.equals(CoderK))
         {
@@ -198,7 +204,7 @@ public void chat()
           wind = true;
         
           one = false;
-          welcome = false;
+          inHanger = false;
           playerStats = true;
         }
       }
@@ -211,4 +217,16 @@ public void chat()
     }
     
 //  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  
+
+   if(inHallway1 == true)
+   {
+     
+   }
+   
+   //  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  
+
+   if(inTrainingRoom == true)
+   {
+     
+   }
 }

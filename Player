@@ -10,6 +10,8 @@ int pGold = 125;
 int pManaMax = 50;
 int pMana = 50;
 
+float dmg;
+
 // Inventory List begin
 
 int potionMana = 50;
@@ -29,7 +31,7 @@ boolean wind = false;
 
 color manaColour = #5BC6FA;
 
-class Player
+public class Player
 {
   PVector position;
   PVector velocity;
@@ -78,6 +80,7 @@ class Player
   }
   
 }
+
 public void pstats()
 {
   //manaRegen();
@@ -168,6 +171,7 @@ public void spells()
       pMana -= spellCost;
       fill(#3E9CE3);
       ellipse(mouseX, mouseY, 50, 50);
+      getDmg();
     }
   }
   if(spell == 2)
@@ -177,6 +181,7 @@ public void spells()
       pMana -= (spellCost + 2);
       fill(#FC7C03);
       ellipse(mouseX, mouseY, 50, 50);
+      getDmg();
     }
   }
   if(spell == 3)
@@ -186,6 +191,7 @@ public void spells()
       pMana -= (spellCost + 5);
       fill(#A2A19F);
       ellipse(mouseX, mouseY, 50, 50);
+      getDmg();
     }
   }
   if(spell == 4)
@@ -195,6 +201,7 @@ public void spells()
       pMana -= (spellCost - 2);
       fill(#F0EEED);
       ellipse(mouseX, mouseY, 50, 50);
+      getDmg();
     }
   }
   
@@ -206,4 +213,34 @@ public void manaRegen()
   {
     pMana++;
   }
+}
+
+public float getDmg()
+{
+  dmg = 0;
+  if(spell == 1)
+  {
+    float frost = random(2, 6);
+    frost = round(frost);
+    dmg += frost;
+  }
+  if(spell == 2)
+  {
+    float fire = random(4, 8);
+    fire = round(fire);
+    dmg += fire;
+  }
+  if(spell == 3)
+  {
+    float rock = random(5, 10);
+    rock = round(rock);
+    dmg += rock;
+  }
+  if(spell == 4)
+  {
+    float wind = random(1, 4);
+    wind = round(wind);
+    dmg += wind;
+  }
+  return dmg;
 }

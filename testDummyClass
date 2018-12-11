@@ -2,30 +2,56 @@ public class testDummy
 {
   private String name = "";
   private int hp;
+  private int x;
+  private int y;
   
-  public testDummy(String name, int hp)
+  public testDummy(String name, int hp, int x, int y)
   {
     this.name = name;
     this.hp = hp;
+    this.x = x;
+    this.y = y;
   }
+  
   public String getName()
   {
     return name;
   }
+  
   public int getHP()
   {
     return hp;
   }
+  
+  public int getX()
+  {
+    return x;
+  }
+  
+  public int getY()
+  {
+    return y;
+  }
+  
   public void setName(String name)
   {
     this.name = name;
   }
+  
   public void setHP(int hp)
   {
     this.hp = hp;
   }
+   
+  public void set bound(int x, int y)
+  {
+    this.x = x;
+    this.y = y;
+  }
+  
   public String toString()
   {
     return "Test dummy " + name + " has " + hp + "Hit Points";
   }
+  
 }

@@ -19,6 +19,10 @@ public void hanger()
     hanger = false;
     hallway1 = true;
     System.out.println("Player is in Hallway 1");
+    UD = 600;
+    LR = 1200;
+    rbUD = 550;
+    rbLR = 1100;
   }
 }
 
@@ -26,13 +30,22 @@ public void hanger()
 
 public void hallway1()
 {
-  UD = 600;
-  LR = 750;
+  image(Hallway1, 0, 0);
   
   showPlayer();
   showRainbow();
   
   chat();
+  
+  //if(UD > 600 || (LR <= 1100 || LR >= 900))
+  //{
+  //  hallway1 = false;
+  //  hanger = true;
+  //  System.out.println("Player is in the Hanger");
+  //  UD = 50;
+  //  LR = 1200;
+  //}
+  
 }
 
 //  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *
@@ -47,3 +60,4 @@ public void trainingRoom()
 }
 
 //  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *
+

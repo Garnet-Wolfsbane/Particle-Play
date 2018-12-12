@@ -11,6 +11,7 @@ public class testDummy
     this.hp = hp;
     this.x = x;
     this.y = y;
+    isDummyDead();
   }
   
   public String getName()
@@ -43,10 +44,16 @@ public class testDummy
     this.hp = hp;
   }
    
-  public void set bound(int x, int y)
+  public void setBound(int x, int y)
   {
     this.x = x;
     this.y = y;
+  }
+  
+  public void showDummy()
+  {
+    fill(#FFF8E7);
+    rect(this.x, this.y, 25, 25);
   }
   
   public String toString()
@@ -54,4 +61,15 @@ public class testDummy
     return "Test dummy " + name + " has " + hp + "Hit Points";
   }
   
+  public boolean isDummyDead()
+  {
+    if(hp <=0)
+    {
+      return true;
+    }
+    else
+    {
+      return false;
+    }
+  }
 }

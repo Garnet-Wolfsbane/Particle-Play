@@ -46,6 +46,7 @@ int moveVal = -2;
 
 PImage Hanger;
 PImage Hallway1;
+PImage TrainingRoom;
 
 //  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *
 
@@ -58,6 +59,7 @@ public void setup()
   playerSetup = true;
   Hanger = loadImage("Hanger.jpg");
   Hallway1 = loadImage("Hallway1.png");
+  TrainingRoom = loadImage("TrainingRoom.png");
 }
 
 //  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *

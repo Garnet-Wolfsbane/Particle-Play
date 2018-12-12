@@ -43,6 +43,7 @@ boolean moveInLineV = false;
 int moveVal = -2;
 
 PImage Hanger;
+PImage Hallway1;
 
 //  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *
 
@@ -54,6 +55,7 @@ public void setup()
   rainbow = new ArrayList<Rainbow>();  //Rainbow (the AI of rainbow coloured particles)
   playerSetup = true;
   Hanger = loadImage("Hanger.jpg");
+  Hallway1 = loadImage("Hallway1.png");
 }
 
 //  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *

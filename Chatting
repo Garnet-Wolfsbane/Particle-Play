@@ -7,6 +7,7 @@
 float talk = 1;    // Used for chatting options
 
 float rbFriendship = 0;    // All used friendship meters for trading and relations through the game
+boolean tutorial = true;
 
 float FF = 5;    // Relations with all Falling Fox Agents
 float memory = 0;    // How much is "remembered" by the player. Used by Rainbow
@@ -29,7 +30,7 @@ float devTalk = 1; //Special developer chat counter
 
 boolean inHanger = false; //Is player in the Hanger?
 boolean inHallway1 = false; //Is player in the Hallway?
-boolean inTrainingRoom = false; //Is player in the Trainging Room?
+boolean inTrainingRoom = false; //Is player in the Training Room?
 
 public void chat()
 {
@@ -44,7 +45,10 @@ public void chat()
     pGold = 125000;
     pManaMax = 1000;
     pMana = 1000;
+    pHealthMax = 2200;
+    pHealth = 2500;
     potionMana = 50000;
+    potionHealth = 100000;
     rbFriendship = 100;
     inHanger = false; //Bypasses the inHanger if command
   }
@@ -87,6 +91,7 @@ public void chat()
 
       if(key == ENTER)
       {
+        cutScene = false;
         frostbite = true;
         fireball = true;
         boulder = true;
@@ -157,6 +162,7 @@ public void chat()
       
       if(key == ENTER)
       {
+        cutScene = false;
         playerStats = true;
         inHanger = false;
         talk = 1;
@@ -170,6 +176,7 @@ public void chat()
       
       if(key == ENTER)
       {
+        cutScene = false;
         playerStats = true;
         inHanger = false;
         talk = 1;
@@ -205,6 +212,7 @@ public void chat()
         
           one = false;
           inHanger = false;
+          cutScene = false;
           playerStats = true;
         }
       }

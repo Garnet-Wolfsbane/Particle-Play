@@ -6,13 +6,23 @@
 
 //  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *
 
+boolean test = false;
+
 public void hanger()
 {
   image(Hanger, 0, 0);
   showPlayer();
-  showRainbow();
+  if(tutorial = true)
+  {
+    showRainbow();
+  }
   
   chat();
+  
+  if(keyCode == 'T')
+  {
+    test = true;
+  }
   
   if(UD <= 2 && (LR <= 800 || LR >= 740))    //Go to Hallway 1
   {
@@ -23,6 +33,10 @@ public void hanger()
     LR = 1200;
     rbUD = 550;
     rbLR = 1100;
+    if(test == true)
+    {
+      tutorial = false;
+    }
   }
 }
 
@@ -33,12 +47,16 @@ public void hallway1()
   image(Hallway1, 0, 0);
   
   showPlayer();
-  showRainbow();
+  if(tutorial = true)
+  {
+    showRainbow();
+  }
   
   chat();
   
   if(UD > 600 && (LR <= 1100 || LR >= 900))
   {
+    rb = false;
     hallway1 = false;
     hanger = true;
     System.out.println("Player is in the Hanger");
@@ -56,6 +74,7 @@ public void hallway1()
     System.out.println("Player is in the Training Room");
     UD = 75;
     LR = 750;
+    
   }
   
 }
@@ -65,8 +84,13 @@ public void hallway1()
 public void trainingRoom()
 {
   image(TrainingRoom, 0, 0);
-  
+  testDummy one = new testDummy("Test", 100, 125, 400);
   showPlayer();
+  if(one.isDummyDead() == false)
+  {
+    
+    one.showDummy();
+  }
   //showRainbow();
   
   chat();

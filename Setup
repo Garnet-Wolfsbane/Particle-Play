@@ -11,11 +11,11 @@
     *  
 */
 
-ArrayList<Player> player;
-ArrayList<Rainbow> rainbow;
+ArrayList<Player> player;  // Call on the class array for Player
+ArrayList<Rainbow> rainbow;  // Call on the class array for Rainbow
 
-String playerName = "";
-boolean playerSetup = false;
+String playerName = "";  //Player name gets stored here
+boolean playerSetup = false;  //Beginning scene the player sets their name
 
 boolean p = false;  // Player
 boolean rb = false;  //  Rainbow
@@ -27,26 +27,30 @@ boolean hallway1 = false;
 boolean training = false;
 // Scenes List end
 
-float UD = 400;  // Up and Down values of the player
-float LR = 875;  // Left and Right value of the player
-float rbUD = 400;  // Up and Down values of Rainbow
-float rbLR = 675;  // Left and Right value of Rainbow
-float pSpeed = 15;
-float UDFlow =.0025;
-float LRFlow = 0;
+boolean cutScene = true;
+
+float UD = 400;  // Y values of the player
+float LR = 875;  // X value of the player
+float rbUD = 400;  // Y values of Rainbow
+float rbLR = 675;  // X value of Rainbow
+float pSpeed = 15;  // Player's movement speed
+float UDFlow =.05;  // Where the particles "fall" on the Y axis
+float LRFlow = 0;  // Where the particles "fall" on the X axis
 
 boolean moveUp = false;  //  movement for Up
 boolean moveDown = false;  //  movement for Down
 boolean moveLeft = false;  //  movement for Left
 boolean moveRight = false;  //  movement for Right
 
-boolean moveInLineV = false;
+boolean moveInLineV = false;  // Rainbow's movement (Vertical Line)
 
 int moveVal = -2;
 
+// Background Images begin
 PImage Hanger;
 PImage Hallway1;
 PImage TrainingRoom;
+// Background Images end
 
 //  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *
 
@@ -56,7 +60,7 @@ public void setup()
   background(25);
   player = new ArrayList<Player>();  //  Player itself (a fountian of light blue particles)
   rainbow = new ArrayList<Rainbow>();  //Rainbow (the AI of rainbow coloured particles)
-  playerSetup = true;
+  playerSetup = true;  //Set up screen
   Hanger = loadImage("Hanger.jpg");
   Hallway1 = loadImage("Hallway1.png");
   TrainingRoom = loadImage("TrainingRoom.png");
@@ -81,9 +85,9 @@ public void draw()
       p = true;  //Player can be seen
       rb = true;  //Rainbow can be seen
       
-      inHanger = true;
-      devTalk++;
-      hanger = true;
+      inHanger = true;  //Move to the hanger
+      devTalk++;  // Used by Dev Team to quickly go to scenes
+      hanger = true;  //Move to the hanger
       System.out.println("Player is in the Hanger");
     }
   }
@@ -232,7 +236,10 @@ void keyReleased()
 
 public void mousePressed()
 {
-  spells();
+  if(cutScene == false)
+  {
+    spells();  // "Cast" "spells" for attacks
+  }
 }
 
 //  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *
@@ -264,6 +271,7 @@ public void showPlayer()
       if(UD > 2)
       {
         UD -= pSpeed;
+        UDFlow = .05;
       }
     }
   
@@ -272,7 +280,7 @@ public void showPlayer()
       if(UD < 650)
       {
         UD += pSpeed;
-        
+        UDFlow = .0005;
       }
     }
   
@@ -281,6 +289,7 @@ public void showPlayer()
       if(LR > 0)
       {
         LR -= pSpeed;
+        LRFlow = .05;
       }
     }
   
@@ -289,12 +298,12 @@ public void showPlayer()
       if(LR < 1440)
       {
         LR += pSpeed;
+        LRFlow = -.05;
       }
-    }
     }
     
   }
-
+}
 
 //  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *
 
@@ -342,5 +351,3 @@ public void showRainbow()
 }
 
 //  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *
-
-

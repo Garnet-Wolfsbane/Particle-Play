@@ -1,6 +1,6 @@
 /*
-  *  
-  *  fix the insta name change for Dev team at the beginning
+  *
+  *
   *
 */
 
@@ -21,38 +21,40 @@ boolean two = false;
 boolean three = false;
 boolean four = false;
 
-String CoderK = "7194";
-String CoderZ = "Jet Cheung";
+String CoderK = "7194"; //Code for Gabe
+String CoderZ = "Jet Cheung"; //Code for Zack
 
-boolean dev = false;
-float devTalk = 1;
+boolean dev = false; //Developer mode
+float devTalk = 1; //Special developer chat counter
 
-boolean inHanger = false;
-boolean inHallway1 = false;
-boolean inTrainingRoom = false;
+boolean inHanger = false; //Is player in the Hanger?
+boolean inHallway1 = false; //Is player in the Hallway?
+boolean inTrainingRoom = false; //Is player in the Trainging Room?
 
 public void chat()
 {
   fill(100);
-  rect(0, 650, 1440, 250);
+  rect(0, 650, 1440, 250); //Creates the chat and main box
   
 //  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *
-  if(playerName.equals(CoderK) || playerName.equals(CoderZ))
+  
+  if(playerName.equals(CoderK) || playerName.equals(CoderZ)) //Checks if player is one of the Developers
   {
     dev = true;
     pGold = 125000;
+    pManaMax = 1000;
+    pMana = 1000;
+    potionMana = 50000;
     rbFriendship = 100;
-    inHanger = false;
+    inHanger = false; //Bypasses the inHanger if command
   }
   
   if(inHanger == true)
   {
-    if(dev != true)
-    {
     if(talk == 1)
     {
       fill(#6209AD);    // Rainbow colour
-      text("Rainbow:  Welcome back, " + playerName,75 , 725);
+      text("Rainbow:  Welcome back, " + playerName, 75, 725);
       text("Do you remember how to use the systems here? If not, use the numberpad to choose dialogue options.", 75, 750);
       
       fill(25, 200, 225);    // Player colour
@@ -61,21 +63,21 @@ public void chat()
       text("No, I don't remember anything here.", 800, 800);
       text("2", 1025, 825);
       
-      if(keyCode == '1')
+      if(keyCode == '1') //First option
       {
-        second = true;
-        one = true;
+        second = true; //Saving without saving (Ask Gabe)
+        one = true; //Goes to first option path
         rbFriendship++;
         memory = 100;
         talk++;
       }
-      if(keyCode == '2')
+      if(keyCode == '2') // Second option
       {
-        first = true;
-        two = true;
+        first = true; //Saving without saving (Ask Gabe)
+        two = true; //Goes to second option path
         talk++;
       }
-      }
+    }
       
     
     if(talk == 2 && one == true)
@@ -118,7 +120,7 @@ public void chat()
       fill(#6209AD);    // Rainbow's colour
       text("Rainbow:  Use the Arrow Keys to move about the map.", 75, 725);
       
-      if(moveUp == true ||moveDown == true ||moveLeft == true ||moveRight == true)
+      if(moveUp == true ||moveDown == true ||moveLeft == true ||moveRight == true) //Did player test out controls? (Now Gabe's just showing off)
       {
         talk++;
       }
@@ -143,7 +145,7 @@ public void chat()
       {
         three = false;
         four = true;
-        pSpeed = 10;
+        pSpeed = 10; //Slows speed
         talk++;
       }
     }
@@ -174,8 +176,6 @@ public void chat()
       }
     }
 
-    }
-
   }
   if(dev == true)
       {
@@ -183,7 +183,7 @@ public void chat()
         {
           inHanger = false;
           fill(#6209AD);    // Rainbow colour
-          text("Let's get right back to it Sir, shall we? *Soft giggle*" ,75 , 725);
+          text("Let's get right back to it Master, shall we? *Soft giggle*" ,75 , 725);
           text("P.S Kenmur and Zack, ég elska þig! Anata wa daisuki desu!", 75, 775);
           //text("Let's hope you get something done today for once, Master *chuckle*", 75, 750);
         }

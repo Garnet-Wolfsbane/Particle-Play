@@ -32,6 +32,8 @@ float LR = 875;  // Left and Right value of the player
 float rbUD = 400;  // Up and Down values of Rainbow
 float rbLR = 675;  // Left and Right value of Rainbow
 float pSpeed = 15;
+float UDFlow =.05;
+float LRFlow = 0;
 
 boolean moveUp = false;  //  movement for Up
 boolean moveDown = false;  //  movement for Down
@@ -260,6 +262,7 @@ public void showPlayer()
       if(UD > 2)
       {
         UD -= pSpeed;
+        UDFlow = .05;
       }
     }
   
@@ -268,6 +271,8 @@ public void showPlayer()
       if(UD < 650)
       {
         UD += pSpeed;
+        UDFlow = .0005;
+        
       }
     }
   
@@ -276,6 +281,7 @@ public void showPlayer()
       if(LR > 0)
       {
         LR -= pSpeed;
+        LRFlow = .05;
       }
     }
   
@@ -284,7 +290,9 @@ public void showPlayer()
       if(LR < 1440)
       {
         LR += pSpeed;
+        LRFlow = -.05;
       }
+    }
     }
     
   }

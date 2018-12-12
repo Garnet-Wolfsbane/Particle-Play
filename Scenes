@@ -1,6 +1,6 @@
 /*
 *  Player learns first spell (Gust of Wind || Frostbite) in the training room
-*  
+*  Hallway 1 --> Training Room needs the wall collider. For now keyCode = W gets you to the training room
 *  
 */
 
@@ -37,14 +37,26 @@ public void hallway1()
   
   chat();
   
-  //if(UD > 600 || (LR <= 1100 || LR >= 900))
-  //{
-  //  hallway1 = false;
-  //  hanger = true;
-  //  System.out.println("Player is in the Hanger");
-  //  UD = 50;
-  //  LR = 1200;
-  //}
+  if(UD > 600 && (LR <= 1100 || LR >= 900))
+  {
+    hallway1 = false;
+    hanger = true;
+    System.out.println("Player is in the Hanger");
+    UD = 50;
+    LR = 800;
+  }
+  
+  if(keyCode == 'W')
+  {
+    
+    // UD >= 400 && UD <= 500) || LR >= 450
+    
+    hallway1 = false;
+    training = true;
+    System.out.println("Player is in the Training Room");
+    UD = 75;
+    LR = 750;
+  }
   
 }
 
@@ -52,9 +64,10 @@ public void hallway1()
 
 public void trainingRoom()
 {
+  image(TrainingRoom, 0, 0);
   
   showPlayer();
-  showRainbow();
+  //showRainbow();
   
   chat();
 }

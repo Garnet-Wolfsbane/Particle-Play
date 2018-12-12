@@ -40,7 +40,7 @@ public class Player
  
   Player(PVector l) 
   {
-    acceleration = new PVector(0, 0.021);
+    acceleration = new PVector(LRFlow, UDFlow);
     velocity = new PVector(random(-1,1),random(-2,0));
     position = l.copy();
     lifespan = 255.0;

@@ -39,10 +39,9 @@ public void chat()
 //  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *
   if(playerName.equals(CoderK) || playerName.equals(CoderZ))
   {
-    fill(#6209AD);    // Rainbow colour
-    text("Rainbow: Let's hope you get something done today for once, Master *chuckle*", 75, 750);
     dev = true;
     pGold = 125000;
+    rbFriendship = 100;
     inHanger = false;
   }
   
@@ -185,7 +184,8 @@ public void chat()
           inHanger = false;
           fill(#6209AD);    // Rainbow colour
           text("Let's get right back to it Sir, shall we? *Soft giggle*" ,75 , 725);
-          text("P.S Kenmur and Zack, ég elska þig!", 75, 775);
+          text("P.S Kenmur and Zack, ég elska þig! Anata wa daisuki desu!", 75, 775);
+          //text("Let's hope you get something done today for once, Master *chuckle*", 75, 750);
         }
         if(playerName.equals(CoderK))
         {

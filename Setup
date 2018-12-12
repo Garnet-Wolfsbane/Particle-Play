@@ -32,7 +32,7 @@ float LR = 875;  // Left and Right value of the player
 float rbUD = 400;  // Up and Down values of Rainbow
 float rbLR = 675;  // Left and Right value of Rainbow
 float pSpeed = 15;
-float UDFlow =.05;
+float UDFlow =.0025;
 float LRFlow = 0;
 
 boolean moveUp = false;  //  movement for Up

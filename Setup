@@ -262,7 +262,6 @@ public void showPlayer()
       if(UD > 2)
       {
         UD -= pSpeed;
-        UDFlow = .05;
       }
     }
   
@@ -271,7 +270,6 @@ public void showPlayer()
       if(UD < 650)
       {
         UD += pSpeed;
-        UDFlow = .0005;
         
       }
     }
@@ -281,7 +279,6 @@ public void showPlayer()
       if(LR > 0)
       {
         LR -= pSpeed;
-        LRFlow = .05;
       }
     }
   
@@ -290,7 +287,6 @@ public void showPlayer()
       if(LR < 1440)
       {
         LR += pSpeed;
-        LRFlow = -.05;
       }
     }
     }

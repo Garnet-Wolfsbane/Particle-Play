@@ -15,6 +15,7 @@ float dmg;
 // Inventory List begin
 
 int potionMana = 50;
+int potionHealth = 0;
 
 // Inventory List begin
 
@@ -41,7 +42,7 @@ public class Player
   Player(PVector l) 
   {
     acceleration = new PVector(LRFlow, UDFlow);
-    velocity = new PVector(random(-1,1),random(-2,0));
+    velocity = new PVector(random(-1, 1),random(-2, 0));
     position = l.copy();
     lifespan = 255.0;
   }

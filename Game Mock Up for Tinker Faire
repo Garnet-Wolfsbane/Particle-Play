@@ -1,0 +1,334 @@
+
+// Re write the code in programme 
+
+float UD = 400;  // Up and Down values of the player
+float LR = 875;  // Left and Right value of the player
+
+float pSpeed = 15;
+
+public void setup()
+{
+  fullScreen();
+  background(25);
+  player = new ArrayList<Player>();  //  Player itself (a fountian of light blue particles)
+  playerSetup = true;
+}
+
+public void draw()
+{
+  
+ if(playerSetup == true)
+  {
+    fill(100);
+    rect(0, 650, 1440, 250); //Creates the chat and main box
+    fill(175);
+    textSize(25);
+    text("Please enter your name, Player:  " + playerName, 75 , 725);
+    text("Press ENTER when you are finished.",75 , 775);
+    
+    if(key == ENTER && playerSetup == true)
+    {
+      playerSetup = false;
+      p = true;  //Player can be seen
+      
+      inHanger = true;
+      hanger = true;
+      System.out.println("Player is in the Hanger");
+    }
+  }
+  
+  if(hanger == true)
+  {  
+    hanger();
+  }
+  
+}
+
+public void chat()
+{
+  
+  int talk = 0;
+  
+  fill(100);
+  rect(0, 650, 1440, 250); //Creates the chat and main box
+  if(talk == 0)
+  {
+    if(key == ENTER)
+    {
+      talk = 1;
+    }
+  }
+  
+  if(talk == 1)
+  {
+    fill(#5B0D90); // Midnight's colour
+    textSize(25);
+    text("Midnight:  Hello " + playerName ,75, 725);
+    text("I am Midnight, the Spirit of the Developers for this game.", 75, 750);
+    text("Move to the top of the screen and I will reveal my programming that you can change.", 75, 775); 
+  }
+}
+
+public void showPlayer()
+{
+  if(p == true)
+  {
+     player.add(new Player(new PVector(LR, UD)));  // Set the player at LR and UD
+     
+     for (int i = player.size()-1; i >= 0; i--) 
+     {
+      Player p = player.get(i);
+      p.run();
+      if (p.isDead()) 
+      {
+        player.remove(i);
+      }
+    }
+    
+    if(moveUp == true)
+    {
+      if(UD > 2)
+      {
+        UD -= pSpeed;
+      }
+    }
+  
+    if(moveDown == true)
+    { 
+      if(UD < 650)
+      {
+        UD += pSpeed;
+      }
+    }
+  
+    if(moveLeft == true)
+    {
+      if(LR > 0)
+      {
+        LR -= pSpeed;
+      }
+    }
+  
+    if(moveRight == true)
+    {
+      if(LR < 1440)
+      {
+        LR += pSpeed;
+      }
+    }
+    
+  }
+}
+
+public void keyPressed()
+{
+
+  if(keyCode == UP && p == true)
+  {
+    if(UD > 2)
+    {
+      UD -= pSpeed;    //Move up
+      moveUp = true;
+    }
+
+  }
+  
+  if(keyCode == DOWN && p == true)
+  {   
+    if(UD < 650)
+    {
+      UD += pSpeed;    //Move down
+      moveDown = true;
+    }
+  }
+  
+  if(keyCode == LEFT && p == true)
+  {
+    if(LR > 0)
+    {
+      LR -= pSpeed;    //Move left
+      moveLeft = true;
+    }
+  }
+  
+  if(keyCode == RIGHT && p == true)
+  {
+    if(LR < 1440)
+    {
+      LR += pSpeed;    //Move right
+      moveRight = true;
+    }
+  }
+
+}
+
+public class Player
+{
+  PVector position;
+  PVector velocity;
+  PVector acceleration;
+  float lifespan;
+ 
+  Player(PVector l) 
+  {
+    acceleration = new PVector(0,.05);
+    velocity = new PVector(random(-1,1),random(-2,0));
+    position = l.copy();
+    lifespan = 255.0;
+  }
+ 
+  public void run() 
+  {
+    update();
+    display();
+  }
+ 
+  public void update() 
+  {
+    velocity.add(acceleration);
+    position.add(velocity);
+    lifespan -= 2.0;
+  }
+ 
+  public void display() 
+  {
+    stroke(25, lifespan);
+    strokeWeight(2);
+    fill(25, 200, 225, lifespan);
+    ellipse(position.x, position.y, 12, 12);
+  }
+ 
+  boolean isDead() 
+  {
+    if (lifespan < 0.0) 
+    {
+      return true;
+    } 
+    else 
+    {
+      return false;
+    }
+  }
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *
+//  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *
+//  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *
+//  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *
+//  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *
+//  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *
+//  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *
+//  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *
+//  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *
+//  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *
+//  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *
+//  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *
+//  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+String playerName = "";
+boolean playerSetup = false;
+
+boolean p = false;  // Player
+boolean hanger = false;
+boolean hallway1 = false;
+
+boolean moveUp = false;  //  movement for Up
+boolean moveDown = false;  //  movement for Down
+boolean moveLeft = false;  //  movement for Left
+boolean moveRight = false;  //  movement for Right
+
+boolean inHanger = false; //Is player in the Hanger?
+
+
+public void hanger()
+{
+  background(25);
+  showPlayer();
+  
+  chat();
+  
+  if(UD <= 2 && (LR <= 800 || LR >= 740))    //Go to Hallway 1
+  {
+    exit();
+  }
+}
+
+ArrayList<Player> player;
+
+public void keyTyped()
+{
+  if(playerSetup == true)
+  {
+    if((int)key != 8)
+    {
+    playerName += char(key);
+    }
+  }
+  
+}
+
+void keyReleased()
+{
+  
+  if(playerSetup == true)
+  {
+    if(keyCode == BACKSPACE)
+    {
+      if(playerName.length()>=1)
+      {
+      playerName = playerName.substring(0,playerName.length()-1);
+      key = 'a';
+      }
+    }
+  }
+  
+  if(keyCode == UP && p == true && moveUp == true)
+  {
+    moveUp = false;
+  }
+  
+  if(keyCode == DOWN && p == true && moveDown == true)
+  {    
+    moveDown = false;
+  }
+  
+  if(keyCode == LEFT && p == true && moveLeft == true)
+  {
+    moveLeft = false;
+  }
+  
+  if(keyCode == RIGHT && p == true && moveRight == true)
+  {
+    moveRight = false;
+  }
+}

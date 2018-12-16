@@ -11,6 +11,8 @@ float pSpeed = 15;
 
 int talk = 0;
 
+ArrayList<Player> player;
+
 public void setup()
 {
   size(1920, 1080);
@@ -28,7 +30,7 @@ public void draw()
     rect(0, 650, 1920, 500); //Creates the chat and main box
     fill(175);
     textSize(25);
-    text("Please enter your name, Player:  " + playerName, 75 , 725);
+    text("Please enter your name, Player:  " + playerName,75 , 725);
     text("Press ENTER when you are finished.",75 , 775);
     
     if(key == ENTER && playerSetup == true)
@@ -46,9 +48,19 @@ public void draw()
     Start();
   }
   
+  if(codeBegin == true)
+  {
+    codeBegin();
+  }
+  
   if(codeOne == true)
   {
     codeOne();
+  }
+  
+  if(codeTwo == true)
+  {
+    codeTwo();
   }
   
 }
@@ -80,12 +92,35 @@ public void chat()
   {
     fill(T); // Twilight's colour
     textSize(25);
-    text("Twilight:  Good. Now do you want to change your avatar's code or how the programme behaves?" ,75, 725);
+    text("Twilight:  Good. Now do you want to change your avatar's code or how the program behaves?" ,75, 725);
     fill(P);
-    text("My avatar.", 125, 750);
-    text("Key 1", 175, 775);
-    text("How the programme behaves.", 725, 750);
-    text("Key 2", 775, 775);
+    text("My avatar.", 125, 775);
+    text("Key 1", 150, 800);
+    text("How the program behaves.", 725, 775);
+    text("Key 2", 850, 800);
+    
+    if(keyCode == '1')
+    {
+      codeBegin = false;
+      codeOne = true;
+      talk = 3;
+    }
+    
+    if(keyCode == '2')
+    {
+      codeBegin = false;
+      codeTwo = true;
+      talk = 4;
+    }
+  }
+  
+  if(talk == 3)
+  {
+    
+  }
+  
+  if(talk == 4)
+  {
     
   }
   
@@ -283,7 +318,9 @@ boolean playerSetup = false;
 
 boolean p = false;  // Player
 boolean Start = false;
+boolean codeBegin = false;
 boolean codeOne = false;
+boolean codeTwo = false;
 
 boolean moveUp = false;  //  movement for Up
 boolean moveDown = false;  //  movement for Down
@@ -300,25 +337,35 @@ public void Start()
   
   chat();
   
-  if(UD <= 2)    //move to next Scene
+  if(UD <= 2 && inStart == true)    //move to next Scene
   {
     inStart = false;
     Start = false;
-    codeOne = true;
+    codeBegin = true;
     talk = 2;
+    
   }
+}
+
+public void codeBegin()
+{
+  background(25);
+  showPlayer();
+  UD = 540;
+  LR = 960;
+  chat();
 }
 
 public void codeOne()
 {
-  background(25);
-  showPlayer();
-  UD = 900;
-  LR = 970;
-  chat();
+  
 }
 
-ArrayList<Player> player;
+public void codeTwo()
+{
+  
+}
+
 
 public void keyTyped()
 {

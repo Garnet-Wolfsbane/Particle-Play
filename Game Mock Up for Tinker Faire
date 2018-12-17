@@ -77,50 +77,171 @@ public void chat()
       talk = 1;
     }
   }
-  
-  if(talk == 1)
+ 
+  switch(talk)
   {
-    fill(T); // Twilight's colour
-    textSize(25);
-    text("Twilight:  Hello " + playerName ,75, 725);
-    text("I am Twilight, the Spirit of the Developers of Falling Fox Studio.", 75, 750);
-    text("I will reveal my programming that you can change.", 75, 775); 
-    text("Move to the top and we can begin your journey into Programming", 75, 800); 
-  }
-  
-  if(talk == 2)
-  {
-    fill(T); // Twilight's colour
-    textSize(25);
-    text("Twilight:  Good. Now do you want to change your avatar's code or how the program behaves?" ,75, 725);
-    fill(P);
-    text("My avatar.", 125, 775);
-    text("Key 1", 150, 800);
-    text("How the program behaves.", 725, 775);
-    text("Key 2", 850, 800);
+    case(1):  fill(T); // Twilight's colour
+              textSize(25);
+              text("Twilight:  Hello " + playerName ,75, 725);
+              text("I am Twilight, the Spirit of the Developers of Falling Fox Studio.", 75, 750);
+              text("I will reveal my programming that you can change.", 75, 775); 
+              text("Move to the top and we can begin your journey into Programming", 75, 800); 
+              break;
     
-    if(keyCode == '1')
-    {
-      codeBegin = false;
-      codeOne = true;
-      talk = 3;
-    }
+    case(2):  fill(T); // Twilight's colour
+              textSize(25);
+              text("Twilight:  Good. Now do you want to change your avatar's code or how the program behaves?" ,75, 725);
+              fill(P);
+              text("My avatar.", 125, 775);
+              text("Key 1", 150, 800);
+              text("How the program behaves.", 725, 775);
+              text("Key 2", 850, 800);
     
-    if(keyCode == '2')
-    {
-      codeBegin = false;
-      codeTwo = true;
-      talk = 4;
-    }
-  }
-  
-  if(talk == 3)
-  {
+              if(keyCode == '1')
+              {
+                codeBegin = false;
+                codeOne = true;
+                UD = 540;
+                LR = 960;
+                talk = 3;
+              }
     
-  }
-  
-  if(talk == 4)
-  {
+              if(keyCode == '2')
+              {
+                codeBegin = false;
+                codeTwo = true;
+                UD = 540;
+                LR = 960;
+                talk = 4;
+              }
+              break;
+    
+    case(3):  fill(T); // Twilight's colour
+              textSize(25);
+              text("Twilight:  Okay, Let's get started, shall we?", 75, 725);
+              fill(P);
+              text("Press Enter", 125, 775);
+              
+              if(keyCode == ENTER && codeOne == true)
+              {
+                talk = 4;
+                p = false;
+                mock = true;
+              }
+              break;
+    
+    case(4):  fill(T);
+              text("Twilight:  Oh Celestia! That wasn't supposed to happen!", 75, 725);
+              text("Hmm... How do we fix this?... I know! What about a boolean statement?", 75, 750);
+              fill(P);
+              text("A balloon statement?", 125, 800);
+              text("Key 1", 200, 825);
+              text("Oh, I know boolean statements.", 750, 800);
+              text("Key 2", 825, 825);
+              if(keyCode == '1')
+              {
+                talk = 5;
+              }
+              if(keyCode == '2')
+              {
+                talk = 6;
+                cocky = true;
+              }
+              break;
+              
+    case(5):  fill(T);
+              if(cocky == false)
+              {
+                text("Twilight:  No, a Boolean statement. It's a true or false statement.", 75, 725);
+              }
+              text("I can't do this on my own. I need your help with this... I need you to turn p to true and mock to false.", 75, 750);
+              text("I'll show you how to do this, don't worry.", 75, 775);
+              fill(P);
+              text("Press Enter", 125, 825);
+              
+              if(keyCode == ENTER && codeOne == true)
+              {
+                talk = 7;
+              }
+              
+              break;
+              
+    case(6):  fill(T);
+              text("Twilight:  Good, Then turn varible p to true and mock to false.", 75, 725);
+              text("Be sure to place a semicolon at the end of the code then a space for the next piece.", 75, 750);
+              fill(P);
+              text("Code:  " + playerBoolean, 125, 800);
+              text("If you are stuck, press Enter", 125, 850);
+              if(playerBoolean.equals("p=true; mock=false;"))
+                {
+                  talk = 9;
+                  playerBoolean = "";
+                }
+                if(playerBoolean.equals("p = true; mock = false;"))
+                {
+                  talk = 9;
+                  playerBoolean = "";
+                }
+              
+              
+              if(keyCode == ENTER && codeOne == true)
+              {
+                  talk = 7;
+              }
+              
+              break;
+              
+    case(7):  fill(T);
+              if(cocky == false)
+              {
+                text("Twilight:  Alright, this is where things get interesting!", 75, 725);
+              }
+              else if(cocky == true)
+              {
+                text("Twilight:  So, you lied. *sighs* There isn't much time to be mad now.", 75, 725);
+              }
+              text("Type out, p = true;", 75, 750);
+              fill(P);
+              text("Code:  " + playerBoolean, 125, 800);
+              
+              if(playerBoolean.equals("p = true;"))
+              {
+                talk = 8;
+                p = true;
+                playerBoolean = "";
+              }
+              
+              break;
+              
+    case(8):  fill(T);
+              text("Twilight:  Excellent, Let's get the fake out of here!", 75, 725);
+              text("Type out, mock = false;", 75, 750);
+              fill(P);
+              text("Code:  " + playerBoolean, 125, 800);
+              
+              if(playerBoolean.equals("mock = false;"))
+              {
+                talk = 9;
+                mock = false;
+              }
+              
+              
+              break;
+              
+    case(9):  fill(T);
+              text("YAY! WE DID IT! Now you know a bit of coding. Let's go learn about the System Operator now.", 75, 725);
+              fill(P);
+              text("Press Enter", 125, 775);
+              
+              if(keyCode == ENTER && codeOne == true)
+              {
+                codeOne = false;
+                codeTwo = true;
+              }
+              
+              
+              break;
+    
     
   }
   
@@ -142,8 +263,22 @@ public void showPlayer()
         player.remove(i);
       }
     }
+    movement();
+  }
     
-    if(moveUp == true)
+    
+  
+  if(mock == true)
+  {
+    fill(P);
+    ellipse(LR, UD, 25, 25);
+    movement();
+  }
+}
+
+public void movement()
+{
+  if(moveUp == true)
     {
       if(UD > 2)
       {
@@ -175,13 +310,12 @@ public void showPlayer()
       }
     }
     
-  }
 }
 
 public void keyPressed()
 {
 
-  if(keyCode == UP && p == true)
+  if(keyCode == UP && (p == true || mock == true))
   {
     if(UD > 2)
     {
@@ -191,7 +325,7 @@ public void keyPressed()
 
   }
   
-  if(keyCode == DOWN && p == true)
+  if(keyCode == DOWN && (p == true || mock == true))
   {   
     if(UD < 650)
     {
@@ -200,7 +334,7 @@ public void keyPressed()
     }
   }
   
-  if(keyCode == LEFT && p == true)
+  if(keyCode == LEFT && (p == true || mock == true))
   {
     if(LR > 0)
     {
@@ -209,7 +343,7 @@ public void keyPressed()
     }
   }
   
-  if(keyCode == RIGHT && p == true)
+  if(keyCode == RIGHT && (p == true || mock == true))
   {
     if(LR < 1440)
     {
@@ -314,9 +448,11 @@ public class Player
 
 
 String playerName = "";
+String playerBoolean = "";
 boolean playerSetup = false;
 
 boolean p = false;  // Player
+boolean mock = false;
 boolean Start = false;
 boolean codeBegin = false;
 boolean codeOne = false;
@@ -329,6 +465,8 @@ boolean moveRight = false;  //  movement for Right
 
 boolean inStart = false; //Is player in the Start?
 
+int a = 25;
+boolean cocky = false;
 
 public void Start()
 {
@@ -343,6 +481,8 @@ public void Start()
     Start = false;
     codeBegin = true;
     talk = 2;
+    UD = 540;
+    LR = 960;
     
   }
 }
@@ -351,13 +491,23 @@ public void codeBegin()
 {
   background(25);
   showPlayer();
-  UD = 540;
-  LR = 960;
+  
   chat();
 }
 
 public void codeOne()
 {
+  if(talk == 3)
+  {
+    background(25);
+  }
+  else if (talk == 9)
+  {
+    background(25);
+  }
+  showPlayer();
+
+  chat();
   
 }
 
@@ -377,12 +527,27 @@ public void keyTyped()
     }
   }
   
+  if(codeOne == true)
+  {
+    
+    if(talk == 6 || talk == 7 || talk == 8)
+    {
+      if((int)key != 8)
+      {
+        playerBoolean += char(key);
+      }
+      
+    }
+  }
+  
+  
+  
 }
 
 void keyReleased()
 {
   
-  if(playerSetup == true)
+  if(playerSetup == true || talk == 6 || talk == 7 || talk == 8)
   {
     if(keyCode == BACKSPACE)
     {
@@ -394,22 +559,22 @@ void keyReleased()
     }
   }
   
-  if(keyCode == UP && p == true && moveUp == true)
+  if(keyCode == UP && (p == true || mock == true) && moveUp == true)
   {
     moveUp = false;
   }
   
-  if(keyCode == DOWN && p == true && moveDown == true)
+  if(keyCode == DOWN && (p == true || mock == true) && moveDown == true)
   {    
     moveDown = false;
   }
   
-  if(keyCode == LEFT && p == true && moveLeft == true)
+  if(keyCode == LEFT && (p == true || mock == true) && moveLeft == true)
   {
     moveLeft = false;
   }
   
-  if(keyCode == RIGHT && p == true && moveRight == true)
+  if(keyCode == RIGHT && (p == true || mock == true) && moveRight == true)
   {
     moveRight = false;
   }

@@ -1,10 +1,20 @@
-
 // Re write the code in programme 
 
 float UD = 540;  // Up and Down values of the player
 float LR = 960;  // Left and Right value of the player
 
+int aa; //
+int interval = 2; //
+float xx = 15; //
+float yy = 15; //
+float spacing = 15; //This is for the 10-Print
+
+Boolean speedChange = true;
+Boolean codeTwoStart = false;
+Boolean print = false;
+
 color T = #BC0265;
+color C = #000000;
 color P = #2BCCD3;
 
 float pSpeed = 15;
@@ -63,6 +73,7 @@ public void draw()
     codeTwo();
   }
   
+      
 }
 
 public void chat()
@@ -83,7 +94,7 @@ public void chat()
     case(1):  fill(T); // Twilight's colour
               textSize(25);
               text("Twilight:  Hello " + playerName ,75, 725);
-              text("I am Twilight, the Spirit of the Developers of Night Fox Studio.", 75, 750);
+              text("I am Twilight, the Spirit of the Developers of Falling Fox Studio.", 75, 750);
               text("I will reveal my programming that you can change.", 75, 775); 
               text("Move to the top and we can begin your journey into Programming", 75, 800); 
               break;
@@ -110,9 +121,8 @@ public void chat()
               {
                 codeBegin = false;
                 codeTwo = true;
-                UD = 540;
-                LR = 960;
-                talk = 4;
+                
+                talk = 10;
               }
               break;
     
@@ -198,7 +208,7 @@ public void chat()
               }
               else if(cocky == true)
               {
-                text("Twilight:  So, you lied. *sighs* There isn't much time to be mad now.", 75, 725);
+                text("Twilight:  So, you lied. sighs There isn't much time to be mad now.", 75, 725);
               }
               text("Type out, p = true;", 75, 750);
               fill(P);
@@ -241,6 +251,100 @@ public void chat()
               
               
               break;
+              
+    case(10): 
+              fill(T);
+              text("This is our most dangerous item. Whatever you do, don't touch it.", 75, 725);
+              stroke(255);
+              strokeWeight(1);
+              line(200, 200, 300, 300);
+              if(UD < 300 && UD > 200)
+              {
+                if(LR < 300 && LR > 200)
+                {
+                  
+                  talk = 11;
+                  p = false;
+                  mock = true;
+                  background(25);
+                }
+              }
+              
+              
+              break;
+              
+              
+    case(11): 
+              print = true;
+              codeTwoStart = true;
+              fill(T);
+              text("Nooooo! We have to hurry up and fix this!", 75, 725);
+              if(keyCode == ENTER && codeTwo == true)
+              {
+                 talk = 12;
+              }
+              
+              break;
+              
+    case(12):
+              fill(T);
+              text("Here I found this variable in the code, it's an object with a value. What should we do with it?", 75, 725);
+              fill(C);
+              text("int interval = 2", 75, 750);
+              fill(P);
+              text("Increase it!", 125, 800);
+              text("Key 1", 200, 825);
+              text("Decrease it!", 750, 800);
+              text("Key 2", 825, 825);
+              if(keyCode == '1')
+              {
+                talk = 13;
+              }
+              if(keyCode == '2')
+              {
+                talk = 14;
+                
+              }
+              
+              break;
+              
+    case(13):
+              fill(100);
+              rect(0, 650, 1440, 250);
+              if(speedChange == true)
+              {
+              interval++;
+              speedChange = false;
+              }
+              fill(T);
+              text("Good, that bought us some time.", 75, 725);
+              
+              
+              
+                break;
+    
+    case(14):
+              fill(100);
+              rect(0, 650, 1440, 250);
+              if(speedChange == true)
+              {
+              interval--;
+              speedChange = false;
+              }
+              fill(T);
+              text("Oh no! It sped up!", 75, 725);
+              
+              
+              
+              break;
+    
+     case(15):
+              
+              
+              
+              
+              break;
+    
     
     
   }
@@ -489,7 +593,10 @@ public void Start()
 
 public void codeBegin()
 {
+  if(print == false)
+  {
   background(25);
+  }
   showPlayer();
   
   chat();
@@ -513,7 +620,43 @@ public void codeOne()
 
 public void codeTwo()
 {
+  if(talk == 10)
+  {
+    background(25);
+  }
+  if(codeTwoStart == true)
+  {
+    
+    
+     aa = second();
+     if(aa % interval == 0)
+     {
+     
+     stroke(255);
+     strokeWeight(1);
+     if (random(1) < 0.5) {
+     line(xx, yy, xx - spacing, yy - spacing);
+     } else {
+     line(xx, yy - spacing, xx - spacing, yy);}
+     
+     xx = xx + spacing;
+     }
+       if (xx > width) 
+       {
+         xx = 0;
+         yy = yy + spacing;
+         
+       }
+     }
+     
+     if(UD < yy)
+     {
+       exit();
+     }
+     
+  showPlayer();
   
+  chat();
 }
 
 

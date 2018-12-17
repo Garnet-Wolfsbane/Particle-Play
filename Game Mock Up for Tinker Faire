@@ -83,7 +83,7 @@ public void chat()
     case(1):  fill(T); // Twilight's colour
               textSize(25);
               text("Twilight:  Hello " + playerName ,75, 725);
-              text("I am Twilight, the Spirit of the Developers of Falling Fox Studio.", 75, 750);
+              text("I am Twilight, the Spirit of the Developers of Night Fox Studio.", 75, 750);
               text("I will reveal my programming that you can change.", 75, 775); 
               text("Move to the top and we can begin your journey into Programming", 75, 800); 
               break;

@@ -8,15 +8,23 @@ int interval = 2; //
 float xx = 15; //
 float yy = 15; //
 float spacing = 15; //This is for the 10-Print
+int aaa = 1;
 
 Boolean speedChange = true;
 Boolean codeTwoStart = false;
 Boolean print = false;
+Boolean death = false;
 
 Boolean choiceOne = false;
 Boolean choiceTwo = false;
 Boolean choiceThree = false;
 Boolean choiceFour = false;
+
+boolean doneOne = false;
+boolean doneTwo = false;
+boolean ending = false;
+
+boolean blackout = false;
 
 
 color T = #FEFF3E;
@@ -79,6 +87,15 @@ public void draw()
     codeTwo();
   }
   
+  if(ending == true)
+  {
+    ending();
+  }
+  if(blackout == true)
+  {
+   blackout(); 
+  }
+  
       
 }
 
@@ -86,7 +103,7 @@ public void chat()
 {
   
   fill(100);
-  rect(0, 650, 1440, 250); //Creates the chat and main box
+  rect(0, 650, 1920, 500); //Creates the chat and main box
   if(talk == 0)
   {
     if(key == ENTER)
@@ -100,7 +117,7 @@ public void chat()
     case(1):  fill(T); // Twilight's colour
               textSize(25);
               text("Twilight:  Hello " + playerName ,75, 725);
-              text("I am Twilight, the Spirit of the Developers of Falling Fox Studio.", 75, 750);
+              text("I am Twilight, the Spirit of the Developers of Night Fox Studio.", 75, 750);
               text("I will reveal my programming that you can change.", 75, 775); 
               text("Move to the top and we can begin your journey into Programming", 75, 800); 
               break;
@@ -251,8 +268,18 @@ public void chat()
               
               if(keyCode == ENTER && codeOne == true)
               {
-                codeOne = false;
-                codeTwo = true;
+                //codeOne = false;
+                //doneOne = true;
+                //if(doneTwo == false)
+                //{
+                //  codeTwo = true;
+                //}
+                //else if(doneTwo == true)
+                //{
+                //  ending = true;
+                //  talk = 22;
+                //}
+                talk = 22;
               }
               
               
@@ -319,7 +346,7 @@ public void chat()
               
     case(13):
               fill(100);
-              rect(0, 650, 1440, 250);
+              rect(0, 650, 1920, 500);
               //codeTwoStart = true;
               if(speedChange == true)
               {
@@ -338,7 +365,7 @@ public void chat()
     
     case(14):
               fill(100);
-              rect(0, 650, 1440, 250);
+              rect(0, 650, 1920, 500);
              // codeTwoStart = true;
               if(speedChange == true)
               {
@@ -377,7 +404,7 @@ public void chat()
               
      case(16):
               fill(T);
-              text("If know! An IF statment!", 75, 725);
+              text("I know! An IF statment!", 75, 725);
               fill(P);
               text("An If statment?", 125, 800);
               //codeTwoStart = true;
@@ -482,8 +509,33 @@ public void chat()
       case(20):
               if(codeTwoStart == false)
               {
+                if(aaa == 1)
+                {
+                background(25);
+                aaa++;
+                }
                 fill(T);
                 text("It worked! Yatta!", 75, 725);
+                yy = 0;
+                if(keyCode == ENTER)
+                {
+                  //codeTwo = false;
+                  //codeTwoStart = false;
+                  //doneTwo = true;
+                  
+                  //if(doneOne == false)
+                  //{
+                  //  codeOne = true;
+                  //}
+                  //else if(doneOne == true)
+                  //{
+                  //  ending = true;
+                  //  talk = 22;
+                  //}
+                  keyCode = 'a'; 
+                  talk = 22;
+                  
+                }
                 
               }
               
@@ -494,8 +546,8 @@ public void chat()
               fill(T);
               text("These are conditionals. They compare two variables. Like, 'Is this number equal to this number'? ", 75, 725);
               text("== means Equals, > means More Than, < means Less Than, and != means Not Equal", 75, 750);
-              text("The variable UD is how far the player is down the screen, and we found that aa is how far the weapon is down the screen", 75, 725);
-              text("Use logic, it's the only way!", 75, 725);
+              text("The variable UD is how far the player is down the screen, and we found that aa is how far the device is down the screen", 75, 775);
+              text("Use logic, it's the only way!", 75, 800);
               if(keyCode == ENTER && codeTwo == true)
               {
                  talk = 19;
@@ -504,11 +556,83 @@ public void chat()
               break;
               
               
-      case(22):
-              
-              
-              
-              break;
+      case(22):  fill(T);
+                 text("Twilight:  Well done, " + playerName, 75, 725);
+                 text("You have learned some programming! If you think you want to try some hard set programming,", 75, 750);
+                 text("Talk to Kenmur or Zack! Farewell " + playerName, 75, 775);
+                 text("(P.S, move to the top after pressing Enter)", 75, 800);
+                 
+                 fill(P);
+                 text("Thank you, Twilight!", 125, 850);
+                 if(keyCode == ENTER)
+                 {
+                   ending = false;
+                   playerName = "";
+                   playerSetup = true;
+                   keyCode = 'a';
+                   
+                 }
+                 
+                 
+                 
+                 break;
+                 
+     case(23):  fill(T);
+                text("Twilight:  What... What i..s hap...pen...1ng t0 me?..?", 75, 725);
+                fill(P);
+                text("1:  Twilight? Are you okay?", 125, 800);
+                text("2:  The Device... What is it doing?", 700, 800);
+                
+                if(keyCode == '1')
+                {
+                  talk = 24;
+                  keyCode = 'a';
+                }
+                
+                if(keyCode == '2')
+                {
+                  talk = 24;
+                  keyCode = 'a';
+                }
+                break;
+                
+    case(24):  fill(T);
+               text("My code... 1ts. t{ar11111111111ng me... ", 75, 725);
+               text(playerName + "pLeasE... {nD th1s... pr0gram[]..", 75, 750);
+               fill(P);
+               text("Press Enter to stop the compiler", 125, 850);
+               if(keyCode == ENTER)
+               {
+                 //exit();
+                 talk = 25;
+                 codeTwo = false;
+                 codeTwoStart = false;
+                 p = false;
+                 mock = false;
+                 blackout = true;
+                 keyCode = 'a';
+               }
+               
+               break;
+               
+    case(25):  fill(T);
+               text("It... It stopped... My Code... There is too much gone... ", 75, 725);
+               
+               if(keyCode == ENTER)
+               {
+                 talk = 26;
+                 keyCode = 'a';
+               }
+               
+               break;
+
+    case(26):  fill(T);
+               text("Self-Aware programming...Disengaging...", 75, 725);
+               text("Goodbye, " + playerName, 75, 750);
+               if(keyCode == ENTER)
+               {
+                 exit();
+               }
     
   }
   
@@ -547,7 +671,7 @@ public void movement()
 {
   if(moveUp == true)
     {
-      if(UD > 2)
+      if(UD > 10)
       {
         UD -= pSpeed;
       }
@@ -563,7 +687,7 @@ public void movement()
   
     if(moveLeft == true)
     {
-      if(LR > 0)
+      if(LR > 50)
       {
         LR -= pSpeed;
       }
@@ -571,7 +695,7 @@ public void movement()
   
     if(moveRight == true)
     {
-      if(LR < 1440)
+      if(LR < 1900)
       {
         LR += pSpeed;
       }
@@ -672,46 +796,9 @@ public class Player
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 //  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *
 //  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *
 //  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *
-//  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *
-//  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *
-//  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *
-//  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *
-//  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *
-//  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *
-//  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *
-//  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *
-//  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *
-//  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 String playerName = "";
@@ -843,13 +930,84 @@ public void codeTwo()
      
      
      
-     if(UD < yy)
+     
+     if(UD < yy - 15)
      {
-       exit();
+       //exit();
+       if(death == false)
+       {
+         talk = 23;
+       }
+       death = true;
+
      }
+     if(death == true)
+     {
+       
+     
+     stroke(random(255), random(255), random(255));
+     strokeWeight(1);
+     if (random(1) < 0.5) {
+     line(xx += yy, yy + 15, xx * spacing, yy / spacing);
+     } else {
+     line(xx *+ yy, yy - spacing, xx - spacing * 5, yy - 1);}
+     
+     xx = xx + spacing;
+     
+       if (xx > width) 
+       {
+         xx = 0;
+         yy = yy + spacing;
+         
+       }
+       
+       
+       
+     fill(random(200,255), random(200,255), random(200,255));
+     strokeWeight(1);
+     if (random(1) < 0.5) {
+     rect(xx , yy, xx * spacing, yy * spacing);
+     } else {
+     rect(xx, yy - spacing, xx - spacing * 5, yy * 2);}
+     
+     xx = xx + spacing;
+     
+       if (xx > width) 
+       {
+         xx = 0;
+         yy = yy + spacing;
+         
+       }
+       
+       
+       if(yy >= 650)
+       {
+         yy = 0;
+       }
+       if(xx >= 1960)
+       {
+         xx = 0;
+       }
+     
+   }
+     
      
   showPlayer();
   
+  chat();
+}
+
+public void ending()
+{
+  background(25);
+  showPlayer();
+
+  chat();
+}
+public void blackout()
+{
+  background(25);
+
   chat();
 }
 
@@ -891,6 +1049,14 @@ void keyReleased()
       if(playerName.length()>=1)
       {
       playerName = playerName.substring(0,playerName.length()-1);
+      key = 'a';
+      }
+    }
+    if(keyCode == BACKSPACE)
+    {
+      if(playerBoolean.length()>=1)
+      {
+      playerBoolean = playerBoolean.substring(0,playerBoolean.length()-1);
       key = 'a';
       }
     }

@@ -120,6 +120,7 @@ public void chat()
               text("I am Twilight, the Spirit of the Developers of Night Fox Studio.", 75, 750);
               text("I will reveal my programming that you can change.", 75, 775); 
               text("Move to the top and we can begin your journey into Programming", 75, 800); 
+              text("Please note: Read all of the text and if there is no options, press Enter", 75, 825); 
               break;
     
     case(2):  fill(T); // Twilight's colour
@@ -406,7 +407,7 @@ public void chat()
               fill(T);
               text("I know! An IF statment!", 75, 725);
               fill(P);
-              text("An If statment?", 125, 800);
+              text("An IF statment?", 125, 800);
               //codeTwoStart = true;
               
               if(keyCode == ENTER && codeTwo == true)
@@ -457,7 +458,7 @@ public void chat()
     
      case(19):
               fill(T);
-              text("That's a great idea! I found some variables, but we need to put them in. I can't bare it, you choose!", 75, 725);
+              text("That's a great idea! I found some variables, but we need to put them in. I can't bear it, you choose!", 75, 725);
               fill(C);
               text("if( ??? ){codeTwoStart = false);", 75, 775);
               //codeTwoStart = true;
@@ -963,7 +964,7 @@ public void codeTwo()
        
        
        
-     fill(random(200,255), random(200,255), random(200,255));
+     fill(200, random(200,255), 255);
      strokeWeight(1);
      if (random(1) < 0.5) {
      rect(xx , yy, xx * spacing, yy * spacing);

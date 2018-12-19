@@ -131,6 +131,7 @@ public void chat()
               text("I'm so happy to meet you!", 75, 775); 
               text("Move to the top and we can begin your journey into Programming", 75, 800); 
               text("Please note: Read all of the text and if there is no options, press Enter", 75, 825); 
+              text("Use the arrow keys to move around.", 750, 675);
               }
               else if(blackout == true)
               {
@@ -256,7 +257,7 @@ public void chat()
               fill(T);
               text("Twilight:  Good, Then turn varible p to true and mock to false.", 75, 725);
               text("Be sure to place a semicolon at the end of the code then a space for the next piece.", 75, 750);
-              text("If you are stuck, press Enter", 125, 850);
+              text("If you are stuck, press Key 1", 125, 850);
               }
               else if(blackout == true)
               {
@@ -293,9 +294,15 @@ public void chat()
                   
                 } 
                 }
+                if(keyCode == ENTER)
+                {
+                  talk = 28;
+                  playerBoolean = "";
+                  keyCode = 'a';
+                }
               
               
-              if(keyCode == ENTER && codeOne == true)
+              if(keyCode == '1' && codeOne == true)
               {
                   talk = 7;
                   keyCode = 'a';
@@ -330,11 +337,25 @@ public void chat()
                 p = true;
                 playerBoolean = "";
               }
+              if(playerBoolean.equals("p=true;"))
+              {
+                talk = 8;
+                p = true;
+                playerBoolean = "";
+              }
               if(playerBoolean.equals("0101010"))
                 {
-                  talk = 28;
+                  talk = 8;
                   playerBoolean = "";
                 } 
+                if(keyCode == ENTER)
+                { 
+                  talk = 8;
+                  p = true;
+                  playerBoolean = "";
+                  keyCode = 'a';
+                }
+                
               
               break;
               
@@ -350,6 +371,24 @@ public void chat()
               if(playerBoolean.equals("mock = false;"))
               {
                 talk = 28;
+                playerBoolean = "";
+                mock = false;
+                p = true;
+              }
+              if(playerBoolean.equals("mock=false;"))
+              {
+                talk = 28;
+                playerBoolean = "";
+                mock = false;
+                p = true;
+              }
+              if(keyCode == ENTER)
+              {
+                talk = 28;
+                playerBoolean = "";
+                mock = false;
+                p = true;
+                keyCode = 'a';
               }
               
               
@@ -1074,11 +1113,23 @@ public void codeTwo()
          
        }
      }
+     
+     if(UD < yy - 15)
+     {
+       //exit();
+       if(death == false)
+       {
+         talk = 23;
+       }
+       death = true;
+
+     }
      if(choiceOne == true)
      {
        if(UD < yy)
        {
          codeTwoStart = false;
+         death = true;
        }
        
      }
@@ -1094,6 +1145,7 @@ public void codeTwo()
        if(UD == yy)
        {
          codeTwoStart = false;
+         death = true;
        }
      }
      if(choiceFour == true)
@@ -1107,16 +1159,6 @@ public void codeTwo()
      
      
      
-     if(UD < yy - 15)
-     {
-       //exit();
-       if(death == false)
-       {
-         talk = 23;
-       }
-       death = true;
-
-     }
      if(death == true)
      {
        
@@ -1265,3 +1307,4 @@ void keyReleased()
     moveRight = false;
   }
 }
+

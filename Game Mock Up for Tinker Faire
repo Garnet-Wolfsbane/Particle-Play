@@ -30,6 +30,7 @@ boolean blackout = false;
 color T = #FEFF3E;
 color C = #000000;
 color P = #2BCCD3;
+color D = #13FC08;
 
 float pSpeed = 15;
 
@@ -118,7 +119,7 @@ public void chat()
               textSize(25);
               text("Twilight:  Hello " + playerName ,75, 725);
               text("I am Twilight, the Spirit of the Developers of Night Fox Studio.", 75, 750);
-              text("I will reveal my programming that you can change.", 75, 775); 
+              text("I'm so happy to meet you!", 75, 775); 
               text("Move to the top and we can begin your journey into Programming", 75, 800); 
               text("Please note: Read all of the text and if there is no options, press Enter", 75, 825); 
               break;
@@ -143,10 +144,7 @@ public void chat()
     
               if(keyCode == '2')
               {
-                codeBegin = false;
-                codeTwo = true;
-                
-                talk = 10;
+               talk = 27;
               }
               break;
     
@@ -165,7 +163,7 @@ public void chat()
               break;
     
     case(4):  fill(T);
-              text("Twilight:  Oh Celestia! That wasn't supposed to happen!", 75, 725);
+              text("Twilight:  Oh no! That wasn't supposed to happen!", 75, 725);
               text("Hmm... How do we fix this?... I know! What about a boolean statement?", 75, 750);
               fill(P);
               text("A balloon statement?", 125, 800);
@@ -208,12 +206,17 @@ public void chat()
               text("If you are stuck, press Enter", 125, 850);
               if(playerBoolean.equals("p=true; mock=false;"))
                 {
-                  talk = 9;
+                  talk = 28;
                   playerBoolean = "";
                 }
                 if(playerBoolean.equals("p = true; mock = false;"))
                 {
-                  talk = 9;
+                  talk = 28;
+                  playerBoolean = "";
+                }
+                if(playerBoolean.equals("7194"))
+                {
+                  talk = 28;
                   playerBoolean = "";
                 }
               
@@ -255,40 +258,23 @@ public void chat()
               
               if(playerBoolean.equals("mock = false;"))
               {
-                talk = 9;
-                mock = false;
+                talk = 28;
               }
               
               
               break;
               
     case(9):  fill(T);
-              text("YAY! WE DID IT! Now you know a bit of coding. Let's go learn about the System Operator now.", 75, 725);
+              text("Twilight:  YAY! WE DID IT!", 75, 725);
               fill(P);
               text("Press Enter", 125, 775);
-              
-              if(keyCode == ENTER && codeOne == true)
-              {
-                //codeOne = false;
-                //doneOne = true;
-                //if(doneTwo == false)
-                //{
-                //  codeTwo = true;
-                //}
-                //else if(doneTwo == true)
-                //{
-                //  ending = true;
-                //  talk = 22;
-                //}
-                talk = 22;
-              }
               
               
               break;
               
     case(10): 
               fill(T);
-              text("This is our most dangerous item. Whatever you do, don't touch it.", 75, 725);
+              text("Twilight:  This is our most dangerous item. Whatever you do, don't touch it.", 75, 725);
               stroke(255);
               strokeWeight(1);
               line(200, 200, 300, 300);
@@ -312,7 +298,9 @@ public void chat()
               print = true;
               codeTwoStart = true;
               fill(T);
-              text("Nooooo! We have to hurry up and fix this!", 75, 725);
+              text("Twilight:  Nooooo! We have to hurry up and fix this!", 75, 725);
+              fill(P);
+              text("Press Enter", 125, 775);
               if(keyCode == ENTER && codeTwo == true)
               {
                  talk = 12;
@@ -323,7 +311,7 @@ public void chat()
               
     case(12):
               fill(T);
-              text("Here I found this variable in the code, it's an object with a value. What should we do with it?", 75, 725);
+              text("Twilight:  Here I found this variable in the code, it's an object with a value. What should we do with it?", 75, 725);
               fill(C);
               text("int interval = 2", 75, 750);
               fill(P);
@@ -355,7 +343,9 @@ public void chat()
               speedChange = false;
               }
               fill(T);
-              text("Good, that bought us some time.", 75, 725);
+              text("Twilight:  Good, that bought us some time.", 75, 725);
+              fill(P);
+              text("Press Enter", 125, 775);
               if(keyCode == ENTER && codeTwo == true)
               {
                  talk = 15;
@@ -374,7 +364,9 @@ public void chat()
               speedChange = false;
               }
               fill(T);
-              text("Oh no! It sped up!", 75, 725);
+              text("Twilight:  Oh no! It sped up!", 75, 725);
+              fill(P);
+              text("Press Enter", 125, 775);
               if(keyCode == ENTER && codeTwo == true)
               {
                  talk = 15;
@@ -389,7 +381,7 @@ public void chat()
      case(15):
               
               fill(T);
-              text("What do we do now?", 75, 725);
+              text("Twilight:  What do we do now?", 75, 725);
               fill(P);
               text("Don't ask me!", 125, 800);
               //codeTwoStart = true;
@@ -405,7 +397,7 @@ public void chat()
               
      case(16):
               fill(T);
-              text("I know! An IF statment!", 75, 725);
+              text("Twilight:  I know! An IF statment!", 75, 725);
               fill(P);
               text("An IF statment?", 125, 800);
               //codeTwoStart = true;
@@ -423,7 +415,7 @@ public void chat()
               
      case(17):
               fill(T);
-              text("Yeah, an IF statment. It compares values and does something if it's true!", 75, 725);
+              text("Twilight:  Yeah, an IF statment. It compares values and does something if it's true!", 75, 725);
               fill(P);
               text("Well let's get to work!", 125, 800);
               //codeTwoStart = true;
@@ -437,13 +429,13 @@ public void chat()
     
      case(18):
               fill(T);
-              text("Here, I found this statment, but it dosen't have anything in it.", 75, 725);
+              text("Twilight:  Here, I found this statment, but it dosen't have anything in it.", 75, 725);
               fill(C);
               text("if(){codeTwoStart = false);", 75, 775);
               fill(T);
-              text("What should we put in it?", 75, 825);
+              text("Twilight:  What should we put in it?", 75, 825);
               fill(P);
-              text("I know, we can use the players location!", 125, 850);
+              text("I know, we can use the players location!", 125, 875);
               //codeTwoStart = true;
               
               if(keyCode == ENTER && codeTwo == true)
@@ -458,7 +450,7 @@ public void chat()
     
      case(19):
               fill(T);
-              text("That's a great idea! I found some variables, but we need to put them in. I can't bear it, you choose!", 75, 725);
+              text("Twilight:  That's a great idea! I found some variables, but we need to put them in. I can't bear it, you choose!", 75, 725);
               fill(C);
               text("if( ??? ){codeTwoStart = false);", 75, 775);
               //codeTwoStart = true;
@@ -516,26 +508,14 @@ public void chat()
                 aaa++;
                 }
                 fill(T);
-                text("It worked! Yatta!", 75, 725);
+                text("Twilight:  It worked! Yay!", 75, 725);
+                fill(P);
+                text("Press Enter", 125, 775);
                 yy = 0;
                 if(keyCode == ENTER)
                 {
-                  //codeTwo = false;
-                  //codeTwoStart = false;
-                  //doneTwo = true;
-                  
-                  //if(doneOne == false)
-                  //{
-                  //  codeOne = true;
-                  //}
-                  //else if(doneOne == true)
-                  //{
-                  //  ending = true;
-                  //  talk = 22;
-                  //}
                   keyCode = 'a'; 
                   talk = 22;
-                  
                 }
                 
               }
@@ -545,10 +525,12 @@ public void chat()
     
       case(21):
               fill(T);
-              text("These are conditionals. They compare two variables. Like, 'Is this number equal to this number'? ", 75, 725);
+              text("Twilight:  These are conditionals. They compare two variables. Like, 'Is this number equal to this number'? ", 75, 725);
               text("== means Equals, > means More Than, < means Less Than, and != means Not Equal", 75, 750);
               text("The variable UD is how far the player is down the screen, and we found that aa is how far the device is down the screen", 75, 775);
               text("Use logic, it's the only way!", 75, 800);
+              fill(P);
+              text("Press Enter", 125, 850);
               if(keyCode == ENTER && codeTwo == true)
               {
                  talk = 19;
@@ -598,7 +580,7 @@ public void chat()
                 break;
                 
     case(24):  fill(T);
-               text("My code... 1ts. t{ar11111111111ng me... ", 75, 725);
+               text("Tw1L1gh^}:  My code... 1ts. t{ar11111111111ng me... ", 75, 725);
                text(playerName + "pLeasE... {nD th1s... pr0gram[]..", 75, 750);
                fill(P);
                text("Press Enter to stop the compiler", 125, 850);
@@ -617,7 +599,7 @@ public void chat()
                break;
                
     case(25):  fill(T);
-               text("It... It stopped... My Code... There is too much gone... ", 75, 725);
+               text("Twilight:  It... It stopped... My Code... There is too much gone... ", 75, 725);
                
                if(keyCode == ENTER)
                {
@@ -628,14 +610,58 @@ public void chat()
                break;
 
     case(26):  fill(T);
-               text("Self-Aware programming...Disengaging...", 75, 725);
-               text("Goodbye, " + playerName, 75, 750);
+               text("Twilight:  Self-Aware programming...Disengaging...", 75, 725);
+               text("Goodbye, " + playerName + "I will miss you.", 75, 750);
+               println(playerName);
                if(keyCode == ENTER)
                {
                  exit();
+                 keyCode = 'a';
                }
+               break;
     
-  }
+    case(27):  fill(D);
+               text("This is the Dev team from Night Fox Studio, in order for the most effective learning experence, you must go to the change your avatar.", 75, 725);
+               text("Sorry for the inconvenience  ~ Kenmur and Zack ~", 75, 750);
+               fill(P);
+               text("Press Enter", 125, 800);
+               
+               if(keyCode == ENTER)
+               {
+                 codeBegin = false;
+                 codeOne = true;
+                 UD = 540;
+                 LR = 960;
+                 talk = 3;
+                 
+               }
+               break;
+               
+    case(28):  background(25);
+               showPlayer();
+               fill(100);
+               rect(0, 650, 1920, 500);
+               fill(T);
+               text("Twilight:  You did it! I'm so proud of you, " + playerName, 75, 725);
+               text("Now, I want to show you something really special.", 75, 750);
+               fill(P);
+               text("Press Enter", 125, 800);
+               if(keyCode == ENTER)
+               {
+                 talk = 10;
+                 UD = 540;
+                 LR = 960;
+                 p = true;
+                 mock = false;
+                 codeOne = false;
+                 codeTwo = true;
+                 codeTwoStart = true;
+                 mock = false;
+                 
+                 keyCode = 'a';
+               }
+              
+  }  
   
   
 }
@@ -1043,7 +1069,7 @@ public void keyTyped()
 void keyReleased()
 {
   
-  if(playerSetup == true || talk == 6 || talk == 7 || talk == 8)
+  if(playerSetup == true)
   {
     if(keyCode == BACKSPACE)
     {
@@ -1053,6 +1079,9 @@ void keyReleased()
       key = 'a';
       }
     }
+  }
+  if(talk == 6 || talk == 7 || talk == 8)
+  {
     if(keyCode == BACKSPACE)
     {
       if(playerBoolean.length()>=1)

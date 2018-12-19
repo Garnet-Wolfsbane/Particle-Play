@@ -10,6 +10,9 @@ float yy = 15; //
 float spacing = 15; //This is for the 10-Print
 int aaa = 1;
 
+String end = "";
+Boolean endStop = false;
+
 Boolean speedChange = true;
 Boolean codeTwoStart = false;
 Boolean print = false;
@@ -25,7 +28,6 @@ boolean doneTwo = false;
 boolean ending = false;
 
 boolean blackout = false;
-boolean endStop = false;
 
 
 color T = #FEFF3E;
@@ -36,7 +38,6 @@ color D = #13FC08;
 float pSpeed = 15;
 
 int talk = 0;
-String end = "";
 
 ArrayList<Player> player;
 
@@ -117,29 +118,18 @@ public void chat()
  
   switch(talk)
   {
-    case(1):  if(blackout == false)
-              {
-                fill(T); // Twilight's colour
-                textSize(25);
-                text("Twilight:  Hello " + playerName ,75, 725);
-                text("I am Twilight, the Spirit of the Developers of Night Fox Studio.", 75, 750);
-                text("I'm so happy to meet you!", 75, 775); 
-                text("Move to the top and we can begin your journey into Programming", 75, 800); 
-                text("Please note: Read all of the text and if there are no options, press Enter", 75, 825); 
-              }
-              else if(blackout == true)
-              {
-              codeType();
-              
-              }
+    case(1):  fill(T); // Twilight's colour
+              textSize(25);
+              text("Twilight:  Hello " + playerName ,75, 725);
+              text("I am Twilight, the Spirit of the Developers of Night Fox Studio.", 75, 750);
+              text("I'm so happy to meet you!", 75, 775); 
+              text("Move to the top and we can begin your journey into Programming", 75, 800); 
+              text("Please note: Read all of the text and if there is no options, press Enter", 75, 825); 
               break;
     
-    case(2):  if(blackout == false)
-              {
-              fill(T); // Twilight's colour
+    case(2):  fill(T); // Twilight's colour
               textSize(25);
               text("Twilight:  Good. Now do you want to change your avatar's code or how the program behaves?" ,75, 725);
-              }
               fill(P);
               text("My avatar.", 125, 775);
               text("Key 1", 150, 800);
@@ -161,12 +151,9 @@ public void chat()
               }
               break;
     
-    case(3):  if(blackout == false)
-              {
-              fill(T); // Twilight's colour
+    case(3):  fill(T); // Twilight's colour
               textSize(25);
               text("Twilight:  Okay, Let's get started, shall we?", 75, 725);
-              }
               fill(P);
               text("Press Enter", 125, 775);
               
@@ -626,18 +613,19 @@ public void chat()
                break;
 
     case(26):  fill(T);
-               text("Twilight: A.I programming...Disengaging...", 75, 725);
+               text("Twilight:  Self-Aware programming...Disengaging...", 75, 725);
                text("Goodbye, " + playerName + "I will miss you.", 75, 750);
                
                if(keyCode == ENTER)
                {
-                 //exit();
-                 Start = true;
-                 talk = 1;
-                 p = true;
-                 endStop = true;
-                 keyCode = 'a';
+                
+                
+                
+                
+                keyCode = 'a';
+                talk = 29;
                }
+               
                break;
     
     case(27):  fill(D);
@@ -680,6 +668,14 @@ public void chat()
                  
                  keyCode = 'a';
                }
+               break;
+      case(29):
+      
+                endStop = true;
+                codeType();
+      
+      
+               break;
               
   }  
   
@@ -872,16 +868,9 @@ boolean cocky = false;
 public void Start()
 {
   background(25);
-
   showPlayer();
   
-  if(blackout == true)
-  {
-    talk = 1;
-  }
-  
   chat();
-  
   
   if(UD <= 2 && inStart == true)    //move to next Scene
   {
@@ -1064,83 +1053,6 @@ public void blackout()
 
   chat();
 }
-public void codeType()
-{
-  if(endStop == true);
-  {
-    
-        background(0);
-        end += "E";
-        fill(#28B913);
-        text(end, 50, 50);
-        background(0);
-        end += "n";
-        fill(#28B913);
-        text(end, 50, 50);
-        background(0);
-        end += "t";
-        fill(#28B913);
-        text(end, 50, 50);
-        background(0);
-        end += "i";
-        fill(#28B913);
-        text(end, 50, 50);
-        background(0);
-        end += "t";
-        fill(#28B913);
-        text(end, 50, 50);
-        background(0);
-        end += "y";
-        fill(#28B913);
-        text(end, 50, 50);
-        background(0);
-        end += " ";
-        fill(#28B913);
-        text(end, 50, 50);
-        background(0);
-        end += "n";
-        fill(#28B913);
-        text(end, 50, 50);
-        background(0);
-        end += "o";
-        fill(#28B913);
-        text(end, 50, 50);
-        background(0);
-        end += "t";
-        fill(#28B913);
-        text(end, 50, 50);
-        background(0);
-        end += " ";
-        fill(#28B913);
-        text(end, 50, 50);
-        background(0);
-        end += "l";
-        fill(#28B913);
-        text(end, 50, 50);
-        background(0);
-        end += "o";
-        fill(#28B913);
-        text(end, 50, 50);
-        background(0);
-        end += "a";
-        fill(#28B913);
-        text(end, 50, 50);
-        background(0);
-        end += "d";
-        fill(#28B913);
-        text(end, 50, 50);
-        background(0);
-        end += "e";
-        fill(#28B913);
-        text(end, 50, 50);
-        background(0);
-        end += "d";
-        fill(#28B913);
-        text(end, 50, 50);
-        endStop = false;
-      }
-      
-  }
 
 
 public void keyTyped()
@@ -1215,4 +1127,89 @@ void keyReleased()
   {
     moveRight = false;
   }
+}
+
+
+public void codeType()
+{
+  background(0);
+  if(endStop == true);
+  {
+    
+        background(0);
+        end += "E";
+        fill(#28B913);
+        text(end, 50, 50);
+        background(0);
+        end += "n";
+        fill(#28B913);
+        text(end, 50, 50);
+        background(0);
+        end += "t";
+        fill(#28B913);
+        text(end, 50, 50);
+        background(0);
+        end += "i";
+        fill(#28B913);
+        text(end, 50, 50);
+        background(0);
+        end += "t";
+        fill(#28B913);
+        text(end, 50, 50);
+        background(0);
+        end += "y";
+        fill(#28B913);
+        text(end, 50, 50);
+        background(0);
+        end += " ";
+        fill(#28B913);
+        text(end, 50, 50);
+        background(0);
+        end += "n";
+        fill(#28B913);
+        text(end, 50, 50);
+        background(0);
+        end += "o";
+        fill(#28B913);
+        text(end, 50, 50);
+        background(0);
+        end += "t";
+        fill(#28B913);
+        text(end, 50, 50);
+        background(0);
+        end += " ";
+        fill(#28B913);
+        text(end, 50, 50);
+        background(0);
+        end += "l";
+        fill(#28B913);
+        text(end, 50, 50);
+        background(0);
+        end += "o";
+        fill(#28B913);
+        text(end, 50, 50);
+        background(0);
+        end += "a";
+        fill(#28B913);
+        text(end, 50, 50);
+        background(0);
+        end += "d";
+        fill(#28B913);
+        text(end, 50, 50);
+        background(0);
+        end += "e";
+        fill(#28B913);
+        text(end, 50, 50);
+        background(0);
+        end += "d";
+        fill(#28B913);
+        text(end, 50, 50);
+        
+      
+      
+  }
+  endStop = false;
+  
+  
+  
 }

@@ -13,8 +13,8 @@ int aaa = 1;
 
 int aaaa;
 String end = "";
+String end1 = "Entity AI #4-5439202b-4653234-017194-ncc1701 unable to be loaded";
 String end2 = "";
-String end3 = "";
 Boolean endStop = false;
 
 Boolean speedChange = true;
@@ -622,10 +622,6 @@ public void chat()
                
                if(keyCode == ENTER)
                {
-                
-                
-                
-                
                 keyCode = 'a';
                 a = second();
                 endStop = true;
@@ -676,10 +672,30 @@ public void chat()
                break;
       case(29):
       
-                
+                background(0);
                 codeType();
+                talk = 30; 
+                break;
+                
+                
+      case(30): 
+      if(endStop == true)
+  {
+    
+      for(int i = 0; i < end1.length(); i++)
+      {
+        end += end1.charAt(i);
+        delay(10);
+        fill(#0DD800);
+        text(end, 50, 50);
+
+      }
       
-      
+  }
+  endStop = false;
+                background(0);
+                fill(#0DD800);
+                text(end, 50, 50);
                
   }  
   
@@ -1137,165 +1153,29 @@ void keyReleased()
 public void codeType()
 {
   
+ // image(waf, 2500, 2500);
   
-  if(endStop == true)
-  {
+  //if(endStop == true)
+  //{
+  //  background(0);
+  //    for(int i = 0; i < end1.length(); i++)
+  //    {
+  //      end += end1.charAt(i);
+  //      delay(10);
+  //      fill(#0DD800);
+  //      text(end, 50, 50);
+        
+        
+        
+  //    }
     
-        background(0);
-        end += "E";
-        fill(#28B913);
-        text(end, 50, 50);
-        background(0);
-        end += "n";
-        fill(#28B913);
-        text(end, 50, 50);
-        background(0);
-        end += "t";
-        fill(#28B913);
-        text(end, 50, 50);
-        background(0);
-        end += "i";
-        fill(#28B913);
-        text(end, 50, 50);
-        background(0);
-        end += "t";
-        fill(#28B913);
-        text(end, 50, 50);
-        background(0);
-        end += "y";
-        fill(#28B913);
-        text(end, 50, 50);
-        background(0);
-        end += " ";
-        fill(#28B913);
-        text(end, 50, 50);
-        background(0);
-        end += "n";
-        fill(#28B913);
-        text(end, 50, 50);
-        background(0);
-        end += "o";
-        fill(#28B913);
-        text(end, 50, 50);
-        background(0);
-        end += "t";
-        fill(#28B913);
-        text(end, 50, 50);
-        background(0);
-        end += " ";
-        fill(#28B913);
-        text(end, 50, 50);
-        background(0);
-        end += "l";
-        fill(#28B913);
-        text(end, 50, 50);
-        background(0);
-        end += "o";
-        fill(#28B913);
-        text(end, 50, 50);
-        background(0);
-        end += "a";
-        fill(#28B913);
-        text(end, 50, 50);
-        background(0);
-        end += "d";
-        fill(#28B913);
-        text(end, 50, 50);
-        background(0);
-        end += "e";
-        fill(#28B913);
-        text(end, 50, 50);
-        background(0);
-        end += "d";
-        fill(#28B913);
-        text(end, 50, 50);
-        if(second() == a + 5)
-        {
-          background(0);
-          end2 += "R";
-          fill(#28B913);
-          text(end2, 50, 100);
-          text(end, 50, 50);
-          background(0);
-          end2 += "e";
-          fill(#28B913);
-          text(end2, 50, 100);
-          text(end, 50, 50);
-          background(0);
-          end2 += "l";
-          fill(#28B913);
-          text(end2, 50, 100);
-          text(end, 50, 50);
-          background(0);
-          end2 += "o";
-          fill(#28B913);
-          text(end2, 50, 100);
-          text(end, 50, 50);
-          background(0);
-          end2 += "a";
-          fill(#28B913);
-          text(end2, 50, 100);
-          text(end, 50, 50);
-          background(0);
-          end2 += "d";
-          fill(#28B913);
-          text(end2, 50, 100);
-          text(end, 50, 50);
-          background(0);
-          end2 += "i";
-          fill(#28B913);
-          text(end2, 50, 100);
-          text(end, 50, 50);
-          background(0);
-          end2 += "n";
-          fill(#28B913);
-          text(end2, 50, 100);
-          text(end, 50, 50);
-          background(0);
-          end2 += "g";
-          fill(#28B913);
-          text(end2, 50, 100);
-          text(end, 50, 50);
-          background(0);
-          end2 += " ";
-          fill(#28B913);
-          text(end2, 50, 100);
-          text(end, 50, 50);
-          background(0);
-          end2 += "e";
-          fill(#28B913);
-          text(end2, 50, 100);
-          text(end, 50, 50);
-          background(0);
-          end2 += "n";
-          fill(#28B913);
-          text(end2, 50, 100);
-          text(end, 50, 50);
-          background(0);
-          end2 += "t";
-          fill(#28B913);
-          text(end2, 50, 100);
-          text(end, 50, 50);
-          background(0);
-          end2 += "i";
-          fill(#28B913);
-          text(end2, 50, 100);
-          text(end, 50, 50);
-          background(0);
-          end2 += "t";
-          fill(#28B913);
-          text(end2, 50, 100);
-          text(end, 50, 50);
-          background(0);
-          end2 += "";
-          fill(#28B913);
-          text(end2, 50, 100);
-          text(end, 50, 50);
-        }
+        
+        
       
       
-  }
-  endStop = false;
+  //}
+  //endStop = false;
+  
   
   
   

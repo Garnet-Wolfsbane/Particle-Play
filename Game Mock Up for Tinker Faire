@@ -121,7 +121,7 @@ public void chat()
               text("I am Twilight, the Spirit of the Developers of Night Fox Studio.", 75, 750);
               text("I'm so happy to meet you!", 75, 775); 
               text("Move to the top and we can begin your journey into Programming", 75, 800); 
-              text("Please note: Read all of the text and if there is no options, press Enter", 75, 825); 
+              text("Please note: Read all of the text and if there are no options, press Enter", 75, 825); 
               break;
     
     case(2):  fill(T); // Twilight's colour

@@ -58,7 +58,7 @@ public void draw()
   
  if(playerSetup == true)
   {
-    fill(100);
+    fill(125);
     rect(0, 650, 1920, 500); //Creates the chat and main box
     fill(175);
     textSize(25);
@@ -110,7 +110,7 @@ public void draw()
 public void chat()
 {
   
-  fill(100);
+  fill(125);
   rect(0, 650, 1920, 500); //Creates the chat and main box
   if(talk == 0)
   {
@@ -122,23 +122,44 @@ public void chat()
  
   switch(talk)
   {
-    case(1):  fill(T); // Twilight's colour
+    case(1):  if(blackout == false)
+              {
+              fill(T); // Twilight's colour
               textSize(25);
               text("Twilight:  Hello " + playerName ,75, 725);
               text("I am Twilight, the Spirit of the Developers of Night Fox Studio.", 75, 750);
               text("I'm so happy to meet you!", 75, 775); 
               text("Move to the top and we can begin your journey into Programming", 75, 800); 
               text("Please note: Read all of the text and if there is no options, press Enter", 75, 825); 
+              }
+              else if(blackout == true)
+              {
+                fill(P);
+                text("This is the start... What happened to Twilight?", 125, 725);
+                text("Maybe if I move to the top, she'll be there.", 125, 750);
+                p = true;
+              }
               break;
     
-    case(2):  fill(T); // Twilight's colour
+    case(2):  if(blackout == false)
+              {
+              fill(T); // Twilight's colour
               textSize(25);
               text("Twilight:  Good. Now do you want to change your avatar's code or how the program behaves?" ,75, 725);
+              
+              }
+              else if(blackout == true)
+              {
+                fill(P);
+                text("Hang on, these were the options I had... ", 125, 725);
+              }
               fill(P);
               text("My avatar.", 125, 775);
               text("Key 1", 150, 800);
               text("How the program behaves.", 725, 775);
               text("Key 2", 850, 800);
+              
+              
     
               if(keyCode == '1')
               {
@@ -147,17 +168,27 @@ public void chat()
                 UD = 540;
                 LR = 960;
                 talk = 3;
+                keyCode = 'a';
               }
     
               if(keyCode == '2')
               {
                talk = 27;
+               keyCode = 'a';
               }
               break;
     
-    case(3):  fill(T); // Twilight's colour
+    case(3):  if(blackout == false)
+              {
+              fill(T); // Twilight's colour
               textSize(25);
               text("Twilight:  Okay, Let's get started, shall we?", 75, 725);
+              }
+              else if(blackout == true)
+              {
+                fill(P);
+                text("She can't be gone... can she?", 125, 725);
+              }
               fill(P);
               text("Press Enter", 125, 775);
               
@@ -166,12 +197,16 @@ public void chat()
                 talk = 4;
                 p = false;
                 mock = true;
+                keyCode = 'a';
               }
               break;
     
-    case(4):  fill(T);
+    case(4):  if(blackout == false)
+              {
+              fill(T);
               text("Twilight:  Oh no! That wasn't supposed to happen!", 75, 725);
               text("Hmm... How do we fix this?... I know! What about a boolean statement?", 75, 750);
+              }
               fill(P);
               text("A balloon statement?", 125, 800);
               text("Key 1", 200, 825);
@@ -180,37 +215,59 @@ public void chat()
               if(keyCode == '1')
               {
                 talk = 5;
+                keyCode = 'a';
               }
               if(keyCode == '2')
               {
                 talk = 6;
                 cocky = true;
+                keyCode = 'a';
               }
               break;
               
-    case(5):  fill(T);
+    case(5):  if(blackout == false)
+              {
+              fill(T);
               if(cocky == false)
               {
                 text("Twilight:  No, a Boolean statement. It's a true or false statement.", 75, 725);
               }
               text("I can't do this on my own. I need your help with this... I need you to turn p to true and mock to false.", 75, 750);
               text("I'll show you how to do this, don't worry.", 75, 775);
+              }
+              else if(blackout == true)
+              {
+                fill(P);
+                text("What is happening?", 125, 750);
+              }
               fill(P);
               text("Press Enter", 125, 825);
               
               if(keyCode == ENTER && codeOne == true)
               {
                 talk = 7;
+                keyCode = 'a';
               }
               
               break;
               
-    case(6):  fill(T);
+    case(6):  if(blackout == false)
+              {
+              fill(T);
               text("Twilight:  Good, Then turn varible p to true and mock to false.", 75, 725);
               text("Be sure to place a semicolon at the end of the code then a space for the next piece.", 75, 750);
+              text("If you are stuck, press Enter", 125, 850);
+              }
+              else if(blackout == true)
+              {
+                fill(P);
+                text("A Code?... Maybe it will shut down the program", 125, 750);
+                fill(100);
+                text("01010100", 1200, 800);
+              }
               fill(P);
               text("Code:  " + playerBoolean, 125, 800);
-              text("If you are stuck, press Enter", 125, 850);
+              
               if(playerBoolean.equals("p=true; mock=false;"))
                 {
                   talk = 28;
@@ -226,16 +283,29 @@ public void chat()
                   talk = 28;
                   playerBoolean = "";
                 }
+                if(blackout == true)
+                {
+                 if(playerBoolean.equals("01010100"))
+                {
+                  talk = 28;
+                  playerBoolean = "";
+                  exit();
+                  
+                } 
+                }
               
               
               if(keyCode == ENTER && codeOne == true)
               {
                   talk = 7;
+                  keyCode = 'a';
               }
               
               break;
               
-    case(7):  fill(T);
+    case(7):  if(blackout == false)
+              {
+              fill(T);
               if(cocky == false)
               {
                 text("Twilight:  Alright, this is where things get interesting!", 75, 725);
@@ -245,8 +315,14 @@ public void chat()
                 text("Twilight:  So, you lied. sighs There isn't much time to be mad now.", 75, 725);
               }
               text("Type out, p = true;", 75, 750);
+              }
+              else if(blackout == true)
+              {
+                fill(100);
+                text("0101010", 100, 500);
+              }
               fill(P);
-              text("Code:  " + playerBoolean, 125, 800);
+              text("Code 2:  " + playerBoolean, 125, 800);
               
               if(playerBoolean.equals("p = true;"))
               {
@@ -254,12 +330,20 @@ public void chat()
                 p = true;
                 playerBoolean = "";
               }
+              if(playerBoolean.equals("0101010"))
+                {
+                  talk = 28;
+                  playerBoolean = "";
+                } 
               
               break;
               
-    case(8):  fill(T);
+    case(8):  if(blackout == false)
+              {
+              fill(T);
               text("Twilight:  Excellent, Let's get the fake out of here!", 75, 725);
               text("Type out, mock = false;", 75, 750);
+              }
               fill(P);
               text("Code:  " + playerBoolean, 125, 800);
               
@@ -271,10 +355,25 @@ public void chat()
               
               break;
               
-    case(9):  fill(T);
+    case(9):  if(blackout == false)
+              {
+              fill(T);
               text("Twilight:  YAY! WE DID IT!", 75, 725);
               fill(P);
               text("Press Enter", 125, 775);
+              }
+              else if(blackout == true)
+              {
+                fill(P);
+                text("She really is gone... There isn't anything left for me here... ", 125, 725);
+                text("Press enter to end the program", 125, 775);
+                if(keyCode == ENTER)
+                {
+                  exit();
+                  keyCode = 'a';
+                }
+              }
+              
               
               
               break;
@@ -341,7 +440,7 @@ public void chat()
               break;
               
     case(13):
-              fill(100);
+              fill(125);
               rect(0, 650, 1920, 500);
               //codeTwoStart = true;
               if(speedChange == true)
@@ -362,7 +461,7 @@ public void chat()
                 break;
     
     case(14):
-              fill(100);
+              fill(125);
               rect(0, 650, 1920, 500);
              // codeTwoStart = true;
               if(speedChange == true)
@@ -647,13 +746,16 @@ public void chat()
                }
                break;
                
-    case(28):  background(25);
+    case(28):  if(blackout == false)
+               {
+               background(25);
                showPlayer();
-               fill(100);
+               fill(125);
                rect(0, 650, 1920, 500);
                fill(T);
                text("Twilight:  You did it! I'm so proud of you, " + playerName, 75, 725);
                text("Now, I want to show you something really special.", 75, 750);
+               }
                fill(P);
                text("Press Enter", 125, 800);
                if(keyCode == ENTER)
@@ -673,7 +775,6 @@ public void chat()
       case(29):
       
                 background(0);
-                codeType();
                 talk = 30; 
                 break;
                 
@@ -692,11 +793,23 @@ public void chat()
       }
       
   }
-  endStop = false;
-                background(0);
-                fill(#0DD800);
-                text(end, 50, 50);
-               
+        endStop = false;
+        background(0);
+        fill(#0DD800);
+        text(end, 50, 50);
+        UD = 540;
+        LR = 960;
+        delay(1000);
+        talk = 31;
+        break;      
+        
+    case(31):  blackout = true;
+               talk = 1;
+               Start = true;
+               inStart = true;
+               p = true;
+              
+        
   }  
   
   
@@ -1070,6 +1183,10 @@ public void ending()
 public void blackout()
 {
   background(25);
+  if(talk < 9)
+  {
+    showPlayer();
+  }
 
   chat();
 }
@@ -1147,36 +1264,4 @@ void keyReleased()
   {
     moveRight = false;
   }
-}
-
-
-public void codeType()
-{
-  
- // image(waf, 2500, 2500);
-  
-  //if(endStop == true)
-  //{
-  //  background(0);
-  //    for(int i = 0; i < end1.length(); i++)
-  //    {
-  //      end += end1.charAt(i);
-  //      delay(10);
-  //      fill(#0DD800);
-  //      text(end, 50, 50);
-        
-        
-        
-  //    }
-    
-        
-        
-      
-      
-  //}
-  //endStop = false;
-  
-  
-  
-  
 }

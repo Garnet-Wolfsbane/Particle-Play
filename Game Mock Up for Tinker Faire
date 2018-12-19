@@ -10,7 +10,11 @@ float yy = 15; //
 float spacing = 15; //This is for the 10-Print
 int aaa = 1;
 
+
+int aaaa;
 String end = "";
+String end2 = "";
+String end3 = "";
 Boolean endStop = false;
 
 Boolean speedChange = true;
@@ -613,7 +617,7 @@ public void chat()
                break;
 
     case(26):  fill(T);
-               text("Twilight:  Self-Aware programming...Disengaging...", 75, 725);
+               text("Twilight:  Twilight A.I ...Disengaging...", 75, 725);
                text("Goodbye, " + playerName + "I will miss you.", 75, 750);
                
                if(keyCode == ENTER)
@@ -623,6 +627,8 @@ public void chat()
                 
                 
                 keyCode = 'a';
+                a = second();
+                endStop = true;
                 talk = 29;
                }
                
@@ -663,7 +669,6 @@ public void chat()
                  mock = false;
                  codeOne = false;
                  codeTwo = true;
-                 codeTwoStart = true;
                  mock = false;
                  
                  keyCode = 'a';
@@ -671,12 +676,11 @@ public void chat()
                break;
       case(29):
       
-                endStop = true;
+                
                 codeType();
       
       
-               break;
-              
+               
   }  
   
   
@@ -1132,8 +1136,9 @@ void keyReleased()
 
 public void codeType()
 {
-  background(0);
-  if(endStop == true);
+  
+  
+  if(endStop == true)
   {
     
         background(0);
@@ -1204,7 +1209,89 @@ public void codeType()
         end += "d";
         fill(#28B913);
         text(end, 50, 50);
-        
+        if(second() == a + 5)
+        {
+          background(0);
+          end2 += "R";
+          fill(#28B913);
+          text(end2, 50, 100);
+          text(end, 50, 50);
+          background(0);
+          end2 += "e";
+          fill(#28B913);
+          text(end2, 50, 100);
+          text(end, 50, 50);
+          background(0);
+          end2 += "l";
+          fill(#28B913);
+          text(end2, 50, 100);
+          text(end, 50, 50);
+          background(0);
+          end2 += "o";
+          fill(#28B913);
+          text(end2, 50, 100);
+          text(end, 50, 50);
+          background(0);
+          end2 += "a";
+          fill(#28B913);
+          text(end2, 50, 100);
+          text(end, 50, 50);
+          background(0);
+          end2 += "d";
+          fill(#28B913);
+          text(end2, 50, 100);
+          text(end, 50, 50);
+          background(0);
+          end2 += "i";
+          fill(#28B913);
+          text(end2, 50, 100);
+          text(end, 50, 50);
+          background(0);
+          end2 += "n";
+          fill(#28B913);
+          text(end2, 50, 100);
+          text(end, 50, 50);
+          background(0);
+          end2 += "g";
+          fill(#28B913);
+          text(end2, 50, 100);
+          text(end, 50, 50);
+          background(0);
+          end2 += " ";
+          fill(#28B913);
+          text(end2, 50, 100);
+          text(end, 50, 50);
+          background(0);
+          end2 += "e";
+          fill(#28B913);
+          text(end2, 50, 100);
+          text(end, 50, 50);
+          background(0);
+          end2 += "n";
+          fill(#28B913);
+          text(end2, 50, 100);
+          text(end, 50, 50);
+          background(0);
+          end2 += "t";
+          fill(#28B913);
+          text(end2, 50, 100);
+          text(end, 50, 50);
+          background(0);
+          end2 += "i";
+          fill(#28B913);
+          text(end2, 50, 100);
+          text(end, 50, 50);
+          background(0);
+          end2 += "t";
+          fill(#28B913);
+          text(end2, 50, 100);
+          text(end, 50, 50);
+          background(0);
+          end2 += "";
+          fill(#28B913);
+          text(end2, 50, 100);
+          text(end, 50, 50);
+        }
       
       
   }

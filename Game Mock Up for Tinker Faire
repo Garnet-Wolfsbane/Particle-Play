@@ -1112,3 +1112,85 @@ void keyReleased()
     moveRight = false;
   }
 }
+public void codeType()
+{
+  if(endStop == true);
+  {
+    
+        background(0);
+        end += "E";
+        fill(#28B913);
+        text(end, 50, 50);
+        background(0);
+        end += "n";
+        fill(#28B913);
+        text(end, 50, 50);
+        background(0);
+        end += "t";
+        fill(#28B913);
+        text(end, 50, 50);
+        background(0);
+        end += "i";
+        fill(#28B913);
+        text(end, 50, 50);
+        background(0);
+        end += "t";
+        fill(#28B913);
+        text(end, 50, 50);
+        background(0);
+        end += "y";
+        fill(#28B913);
+        text(end, 50, 50);
+        background(0);
+        end += " ";
+        fill(#28B913);
+        text(end, 50, 50);
+        background(0);
+        end += "n";
+        fill(#28B913);
+        text(end, 50, 50);
+        background(0);
+        end += "o";
+        fill(#28B913);
+        text(end, 50, 50);
+        background(0);
+        end += "t";
+        fill(#28B913);
+        text(end, 50, 50);
+        background(0);
+        end += " ";
+        fill(#28B913);
+        text(end, 50, 50);
+        background(0);
+        end += "l";
+        fill(#28B913);
+        text(end, 50, 50);
+        background(0);
+        end += "o";
+        fill(#28B913);
+        text(end, 50, 50);
+        background(0);
+        end += "a";
+        fill(#28B913);
+        text(end, 50, 50);
+        background(0);
+        end += "d";
+        fill(#28B913);
+        text(end, 50, 50);
+        background(0);
+        end += "e";
+        fill(#28B913);
+        text(end, 50, 50);
+        background(0);
+        end += "d";
+        fill(#28B913);
+        text(end, 50, 50);
+        endStop = false;
+      
+      
+  }
+  
+  
+  
+  
+}
